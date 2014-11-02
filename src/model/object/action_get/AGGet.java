@@ -1,6 +1,10 @@
 package model.object.action_get;
 // #[regen=yes,id=DCE.C8E1997C-5543-A8EF-C62B-D06A59CD84A8]
 // </editor-fold> 
+
+import model.object.IObject;
+import model.player.Game;
+
 public class AGGet implements IActionGet {
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -9,5 +13,13 @@ public class AGGet implements IActionGet {
     public AGGet () {
     }
 
+    @Override
+    public boolean get(IObject obj) {
+        if(Game.getInstance().getCharacter().getInventory().add(obj)){
+           System.out.println("você pegou " + obj.getDescription());
+           return true;
+        }
+        return false;
+    }
 }
 

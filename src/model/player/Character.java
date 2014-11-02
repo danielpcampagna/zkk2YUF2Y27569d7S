@@ -8,10 +8,14 @@ import model.observer.IObserver;
 // #[regen=yes,id=DCE.C688E0AE-7C3B-D8BA-8BAA-65F7B3001AE3]
 // </editor-fold> 
 public class Character extends IObservable implements IObserver {
-
+    /**
+     * 20 pontos são distribuidos entre force,resistence,agility,intelligence;
+     * force
+     */
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.5EAD8D81-51C7-11D2-D930-71A019F81A64]
     // </editor-fold> 
+    
     private int force;
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -33,6 +37,8 @@ public class Character extends IObservable implements IObserver {
     // #[regen=yes,id=DCE.7DF80A01-46C6-6926-54C7-15D429C5D0FF]
     // </editor-fold> 
     private Inventory mInventory;
+    
+    private Memory memory;
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.0CEACD44-6C4F-7001-B836-3721ECE58057]

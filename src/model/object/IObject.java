@@ -1,4 +1,4 @@
-package model;
+package model.object;
 
 import model.observer.IObservable;
 import model.observer.IObserver;
@@ -15,7 +15,25 @@ import model.object.action_fusion.IActionFusion;
 // #[regen=yes,id=DCE.EC3BFABA-A36E-F5CF-4486-FDF2640ADCAE]
 // </editor-fold> 
 public class IObject extends IObservable implements IObserver {
-
+    /**
+     * ID : identificardor unico do objeto; 
+     * visibility: coeficiênte de visibilidade, 0 a 100 ,caso o coeficiênto do local for maior que do objeto o mesmo se torna visivel.
+     * damaged: coeficiênte de danos , 0 a 10,ao receber um ataque,caso a força do personagem + damaged > 10 o objeto quebra.
+     * weight: coeficiênte de peso,0 a 10,a força do personagem deve ser maior que o peso do objeto para pega-lo ou taca-lo.
+     * size : coeficiênte de tamanho , 0 a 100, utilizado para verificar se o personagem podera colocar o item no inventario.
+     * amount: quantidade de itens.
+     * description : descrição comum do objeto ao ser visto pelo jogador.
+     * analysis : descrição do objeto ao ser checado pelo jogador;
+     */
+    
+    private int ID;
+    private int visibility;
+    private int weight;
+    private int size;
+    private int amount;
+    private String description;
+    private String analysis;
+    
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.6AE0747D-9F06-1EF8-AF40-75214061060F]
     // </editor-fold> 
@@ -155,5 +173,113 @@ public class IObject extends IObservable implements IObserver {
         this.mTAActionThrow = val;
     }
 
+    public int getID() {
+        return ID;
+    }
+
+    public int getVisibility() {
+        return visibility;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getAnalysis() {
+        return analysis;
+    }
+
+    public IActionOpen getmTAActionOpen() {
+        return mTAActionOpen;
+    }
+
+    public IActionThrow getmTAActionThrow() {
+        return mTAActionThrow;
+    }
+
+    public IActionDrop getmTAActionDrop() {
+        return mTAActionDrop;
+    }
+
+    public IActionGet getmTAActionGet() {
+        return mTAActionGet;
+    }
+
+    public IActionAttack getmTAActionAttack() {
+        return mTAActionAttack;
+    }
+
+    public IActionFusion getmTAActionFusion() {
+        return mTAActionFusion;
+    }
+
+    public IActionCheck getmTAActionCheck() {
+        return mTAActionCheck;
+    }
+
+    public void setVisibility(int visibility) {
+        this.visibility = visibility;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setAnalysis(String analysis) {
+        this.analysis = analysis;
+    }
+
+    public void setmTAActionOpen(IActionOpen mTAActionOpen) {
+        this.mTAActionOpen = mTAActionOpen;
+    }
+
+    public void setmTAActionThrow(IActionThrow mTAActionThrow) {
+        this.mTAActionThrow = mTAActionThrow;
+    }
+
+    public void setmTAActionDrop(IActionDrop mTAActionDrop) {
+        this.mTAActionDrop = mTAActionDrop;
+    }
+
+    public void setmTAActionGet(IActionGet mTAActionGet) {
+        this.mTAActionGet = mTAActionGet;
+    }
+
+    public void setmTAActionAttack(IActionAttack mTAActionAttack) {
+        this.mTAActionAttack = mTAActionAttack;
+    }
+
+    public void setmTAActionFusion(IActionFusion mTAActionFusion) {
+        this.mTAActionFusion = mTAActionFusion;
+    }
+
+    public void setmTAActionCheck(IActionCheck mTAActionCheck) {
+        this.mTAActionCheck = mTAActionCheck;
+    }
+    
 }
 

@@ -6,16 +6,17 @@ package model.player;
 // </editor-fold> 
 public class Game {
 
+    private static Game instance;
+    private Game(){}
+    public static synchronized Game getInstance(){
+        if(instance==null)
+            instance = new Game();
+        return instance;
+    } 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.4DEB66D4-9996-43B8-7E5B-215A4286261C]
     // </editor-fold> 
     private Character mCharacter;
-
-    // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
-    // #[regen=yes,id=DCE.1AC09D36-EEFE-C138-336E-22DECF203BDC]
-    // </editor-fold> 
-    public Game () {
-    }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.9A9423B8-0B76-8AEA-733C-0EC00BD1DBD5]
