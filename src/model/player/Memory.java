@@ -19,5 +19,21 @@ public class Memory {
         this.capacity = capacity;
     }
 
+    public List<String> getAnalysis() {
+        return analysis;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setAnalysis(List<String> analysis) {
+        this.analysis = analysis;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+    
 }
 

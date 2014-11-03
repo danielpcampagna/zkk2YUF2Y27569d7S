@@ -42,6 +42,14 @@ public class Character extends IObservable {
     
     private Memory memory;
 
+    public Memory getMemory() {
+        return memory;
+    }
+
+    public void setMemory(Memory memory) {
+        this.memory = memory;
+    }
+    
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.0CEACD44-6C4F-7001-B836-3721ECE58057]
     // </editor-fold> 
