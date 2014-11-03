@@ -31,7 +31,7 @@ public class Character extends IObservable implements IObserver {
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.C427224B-626B-FD2C-79FD-167D2D0968EA]
     // </editor-fold> 
-    private int intelligence;
+    private int inteligence;
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.7DF80A01-46C6-6926-54C7-15D429C5D0FF]
@@ -43,7 +43,11 @@ public class Character extends IObservable implements IObserver {
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.0CEACD44-6C4F-7001-B836-3721ECE58057]
     // </editor-fold> 
-    public Character () {
+    public Character (int force, int resistence, int agility, int inteligence) {
+        this.force = force;
+        this.resistence = resistence;
+        this.agility = agility;
+        this.inteligence = inteligence;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -78,14 +82,14 @@ public class Character extends IObservable implements IObserver {
     // #[regen=yes,regenBody=yes,id=DCE.EB15A25C-FC67-11E3-9E1C-B030ACAF53FD]
     // </editor-fold> 
     public int getIntelligence () {
-        return intelligence;
+        return inteligence;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.2FFC15F9-5A1C-71C8-9705-3C962EF199C0]
     // </editor-fold> 
     public void setIntelligence (int val) {
-        this.intelligence = val;
+        this.inteligence = val;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -115,6 +119,8 @@ public class Character extends IObservable implements IObserver {
     public void setResistence (int val) {
         this.resistence = val;
     }
-
+   public boolean checkAtributes(int force, int resistence, int agility, int inteligence){
+       return getForce()>=force && getResistence()>= resistence && getAgility()>= agility && getIntelligence() >= inteligence;
+   }
 }
 

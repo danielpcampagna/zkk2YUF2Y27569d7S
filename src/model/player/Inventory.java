@@ -15,7 +15,12 @@ public class Inventory {
         if (capacity >= obj.getAmount() * obj.getSize()) {
             objects.add(obj);
             capacity -= obj.getAmount() * obj.getSize();
+            System.out.println("você pegou " + obj.getDescription());
             return true;
+        }else{
+            System.out.println("inventorio cheio " );
+            System.out.println((100- getCapacity())+ "disponiveis");
+            System.out.println(obj.getDescription() + " pesa "+obj.getAmount() * obj.getSize());
         }
         return false;
     }
