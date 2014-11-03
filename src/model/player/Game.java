@@ -1,5 +1,7 @@
 package model.player;
 
+import model.local.ILocal;
+
 
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.5C5C8579-74C7-7E75-C6F4-F77CB4B93C5D]
@@ -13,6 +15,7 @@ public class Game {
             instance = new Game();
         return instance;
     } 
+    private ILocal local;
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.4DEB66D4-9996-43B8-7E5B-215A4286261C]
     // </editor-fold> 

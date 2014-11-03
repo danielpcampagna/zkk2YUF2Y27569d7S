@@ -1,17 +1,19 @@
 package model.player;
 
 import model.observer.IObservable;
-import model.observer.IObserver;
+
 
 
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.C688E0AE-7C3B-D8BA-8BAA-65F7B3001AE3]
 // </editor-fold> 
-public class Character extends IObservable implements IObserver {
+public class Character extends IObservable {
     /**
      * 20 pontos são distribuidos entre force,resistence,agility,intelligence;
      * force
      */
+     public final static int TYPE = 2;
+    
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.5EAD8D81-51C7-11D2-D930-71A019F81A64]
     // </editor-fold> 
@@ -122,5 +124,6 @@ public class Character extends IObservable implements IObserver {
    public boolean checkAtributes(int force, int resistence, int agility, int inteligence){
        return getForce()>=force && getResistence()>= resistence && getAgility()>= agility && getIntelligence() >= inteligence;
    }
+
 }
 

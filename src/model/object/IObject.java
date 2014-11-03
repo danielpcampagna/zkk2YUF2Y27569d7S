@@ -1,7 +1,9 @@
 package model.object;
 
+import model.local.ILocal;
 import model.observer.IObservable;
 import model.observer.IObserver;
+import model.player.Character;
 import model.object.action_throw.IActionThrow;
 import model.object.action_open.IActionOpen;
 import model.object.action_get.IActionGet;
@@ -33,7 +35,8 @@ public class IObject extends IObservable implements IObserver {
     private int amount;
     private String description;
     private String analysis;
-    
+    private String state;
+     public final static int TYPE = 1;
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.6AE0747D-9F06-1EF8-AF40-75214061060F]
     // </editor-fold> 
@@ -73,6 +76,7 @@ public class IObject extends IObservable implements IObserver {
     // #[regen=yes,id=DCE.2DCA2ED0-ABAC-4AAA-BB70-2449E027BC00]
     // </editor-fold> 
     public IObject () {
+        setType(0);
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -201,6 +205,14 @@ public class IObject extends IObservable implements IObserver {
         return analysis;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+    
     public IActionOpen getmTAActionOpen() {
         return mTAActionOpen;
     }
@@ -279,6 +291,21 @@ public class IObject extends IObservable implements IObserver {
 
     public void setmTAActionCheck(IActionCheck mTAActionCheck) {
         this.mTAActionCheck = mTAActionCheck;
+    }
+
+    @Override
+    public void update(IObservable ob) {
+        switch (ob.getType()) {
+            case ILocal.TYPE:
+                ILocal local = (ILocal) ob;
+                break;
+            case IObject.TYPE:
+                IObject obj = (IObject) ob;
+                break;
+            case Character.TYPE:
+              Character character = (model.player.Character) ob;
+                break;
+        }
     }
     
 }

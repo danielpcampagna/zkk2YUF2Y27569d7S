@@ -24,6 +24,16 @@ public class Inventory {
         }
         return false;
     }
+    public boolean remove(IObject obj){
+        if(objects.contains(obj)){
+            objects.remove(obj);
+            capacity += obj.getAmount() * obj.getSize();
+             System.out.println("você dropou " + obj.getDescription());
+            return true;
+        }
+        System.out.println("você não possui este item ");
+        return false;
+    }
 
     public void setObjects(List<IObject> objects) {
         this.objects = objects;
