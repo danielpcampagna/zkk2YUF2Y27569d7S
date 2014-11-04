@@ -2,12 +2,14 @@ package model.player;
 
 import java.util.List;
 import model.object.IObject;
+import model.observer.IObservable;
+import model.observer.IObserver;
 
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.6A5BC1C3-796F-F2BE-38F8-67A0CA35EB15]
 // </editor-fold> 
 public class Inventory {
-
+    public final static int TYPE = 2;
     private List<IObject> objects;
     private int capacity;
 
