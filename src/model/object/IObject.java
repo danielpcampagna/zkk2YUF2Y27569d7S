@@ -32,11 +32,13 @@ public class IObject extends IObservable implements IObserver {
     private int visibility;
     private int weight;
     private int size;
+    private int damaged;
     private int amount;
     private String description;
     private String analysis;
     private String state;
      public final static int TYPE = 1;
+     
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.6AE0747D-9F06-1EF8-AF40-75214061060F]
     // </editor-fold> 
@@ -211,6 +213,14 @@ public class IObject extends IObservable implements IObserver {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public int getDamaged() {
+        return damaged;
+    }
+
+    public void setDamaged(int damaged) {
+        this.damaged = damaged;
     }
     
     public IActionOpen getmTAActionOpen() {

@@ -2,6 +2,7 @@ package model.observer;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.object.IObject;
 
 
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -38,9 +39,14 @@ public class IObservable {
         list.remove(o);
     }
    //Notifica todos os observadores
-       public void notificar() {
+    public void notifyObserver() {
         for (IObserver o : list) {
             o.update(this);
+        }
+    }
+    public void notifyObserver(IObject obj) {
+        for (IObserver o : list) {
+            o.update(obj);
         }
     }
 }

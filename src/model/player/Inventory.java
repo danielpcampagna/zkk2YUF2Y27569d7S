@@ -16,6 +16,8 @@ public class Inventory {
             objects.add(obj);
             capacity -= obj.getAmount() * obj.getSize();
             System.out.println("você pegou " + obj.getDescription());
+            obj.setState("inventory");
+            obj.notifyObserver();
             return true;
         }else{
             System.out.println("inventorio cheio " );
@@ -29,6 +31,9 @@ public class Inventory {
             objects.remove(obj);
             capacity += obj.getAmount() * obj.getSize();
              System.out.println("você dropou " + obj.getDescription());
+             //vai avisar ao local que estado desse item foi mudado.
+             obj.setState("Local");
+             obj.notifyObserver();
             return true;
         }
         System.out.println("você não possui este item ");

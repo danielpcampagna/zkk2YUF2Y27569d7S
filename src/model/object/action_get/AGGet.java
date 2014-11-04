@@ -15,6 +15,7 @@ public class AGGet implements IActionGet {
 
     @Override
     public boolean get(IObject obj) {
+        
         return Game.getInstance().getCharacter().getInventory().add(obj);
     }
 }
