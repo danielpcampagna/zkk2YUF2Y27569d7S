@@ -25,6 +25,7 @@ public class AFFusion implements IActionFusion {
            System.out.println("a cominação de:"+obj1.getDescription() + " e " + obj2.getDescription() + "\n gerou " + out.getDescription());
            return true;
         }
+        System.out.println("não foi possivel combinar :"+ obj1.getDescription() + " e " + obj2.getDescription());
         return false;
     }
 
