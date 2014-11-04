@@ -138,9 +138,6 @@ public class ILocal extends IObservable implements IObserver {
                     objects.add(obj);
                 }
                 break;
-            case Character.TYPE:
-                Character character = (Character) ob;
-                break;
         }
     }
 

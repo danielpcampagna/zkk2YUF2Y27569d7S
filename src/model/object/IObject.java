@@ -312,9 +312,7 @@ public class IObject extends IObservable implements IObserver {
             case IObject.TYPE:
                 IObject obj = (IObject) ob;
                 break;
-            case Character.TYPE:
-              Character character = (model.player.Character) ob;
-                break;
+
         }
     }
     
