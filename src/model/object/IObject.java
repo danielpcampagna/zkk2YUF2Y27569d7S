@@ -80,7 +80,24 @@ public class IObject extends IObservable implements IObserver {
     public IObject () {
         setType(0);
     }
-
+    public boolean atack(){
+        return mTAActionAttack.atack(this);
+    }
+    public boolean check(){
+        return mTAActionCheck.analyze(this);
+    }
+    public boolean fusion(IObject other){
+        return mTAActionFusion.combine(this, other);
+    }
+    public boolean get(){
+        return mTAActionGet.get(this);
+    }
+    public boolean drop(){
+        return mTAActionDrop.drop(this);
+    }
+    public boolean throwObject(IObject other){
+        return mTAActionThrow.throwObject(this,other);
+    }
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.E8CD1833-82BB-ECE0-8213-D1D7EFDD7124]
     // </editor-fold> 
