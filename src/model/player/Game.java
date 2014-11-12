@@ -1,6 +1,8 @@
 package model.player;
 
-import model.local.ILocal;
+import model.room.Room;
+
+
 
 
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -15,7 +17,7 @@ public class Game {
             instance = new Game();
         return instance;
     } 
-    private ILocal local;
+    private Room local;
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.4DEB66D4-9996-43B8-7E5B-215A4286261C]
     // </editor-fold> 
@@ -47,5 +49,21 @@ public class Game {
         this.mCharacter = val;
     }
 
+    public Room getLocal() {
+        return local;
+    }
+
+    public void setLocal(Room local) {
+        this.local = local;
+    }
+
+    public Character getmCharacter() {
+        return mCharacter;
+    }
+
+    public void setmCharacter(Character mCharacter) {
+        this.mCharacter = mCharacter;
+    }
+    
 }
 

@@ -1,7 +1,8 @@
 package model.player;
 
-import java.util.List;
-import model.object.IObject;
+
+import java.util.Map;
+import model.object.TAObject;
 import model.observer.IObservable;
 import model.observer.IObserver;
 
@@ -10,39 +11,31 @@ import model.observer.IObserver;
 // </editor-fold> 
 public class Inventory {
     public final static int TYPE = 2;
-    private List<IObject> objects;
+    private Map<String,TAObject> objects;
     private int capacity;
 
-    public boolean add(IObject obj) {
-        if (capacity >= obj.getAmount() * obj.getSize()) {
-            objects.add(obj);
-            capacity -= obj.getAmount() * obj.getSize();
-            System.out.println("você pegou " + obj.getDescription());
-            obj.setState("inventory");
-            obj.notifyObserver();
+    public boolean putInventory(TAObject obj) {
+        if (capacity >=  obj.getSize()) {
+            objects.put(obj.getName(),obj);
+            capacity -= obj.getSize();
             return true;
-        }else{
-            System.out.println("inventorio cheio " );
-            System.out.println((100- getCapacity())+ "disponiveis");
-            System.out.println(obj.getDescription() + " pesa "+obj.getAmount() * obj.getSize());
         }
         return false;
     }
-    public boolean remove(IObject obj){
-        if(objects.contains(obj)){
+    public boolean removeInventory(TAObject obj){
+        if(objects.containsKey(obj.getName())){
             objects.remove(obj);
-            capacity += obj.getAmount() * obj.getSize();
-             System.out.println("você dropou " + obj.getDescription());
-             //vai avisar ao local que estado desse item foi mudado.
-             obj.setState("Local");
-             obj.notifyObserver();
+            capacity +=  obj.getSize();
             return true;
         }
-        System.out.println("você não possui este item ");
         return false;
     }
 
-    public void setObjects(List<IObject> objects) {
+    /**
+     *
+     * @param objects
+     */
+    public void setObjects(Map<String,TAObject> objects) {
         this.objects = objects;
     }
 
@@ -50,7 +43,7 @@ public class Inventory {
         this.capacity = capacity;
     }
 
-    public List<IObject> getObjects() {
+    public Map<String,TAObject> getObjects() {
         return objects;
     }
 
@@ -58,11 +51,13 @@ public class Inventory {
         return capacity;
     }
 
-    // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
-    // #[regen=yes,id=DCE.D218585E-DCB1-0C2F-A812-B24DE53DABEE]
-    // </editor-fold> 
     public Inventory(int capacity) {
         this.capacity = capacity;
     }
-
+    public TAObject getObject(String name){
+        return objects.get(name);
+    }
+    public boolean containsKey(String name){
+        return objects.containsKey(name);
+    }
 }

@@ -2,7 +2,7 @@ package model.observer;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.object.IObject;
+import model.object.TAObject;
 
 
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -44,7 +44,7 @@ public class IObservable {
             o.update(this);
         }
     }
-    public void notifyObserver(IObject obj) {
+    public void notifyObserver(TAObject obj) {
         for (IObserver o : list) {
             o.update(obj);
         }

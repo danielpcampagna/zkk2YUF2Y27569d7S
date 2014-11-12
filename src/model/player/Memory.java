@@ -1,6 +1,7 @@
 package model.player;
 
 import java.util.List;
+import model.object.GameText;
 
 
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
@@ -34,6 +35,18 @@ public class Memory {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-    
+    public void add(String in){
+        if(analysis.size()==capacity && !analysis.isEmpty()){
+            analysis.remove(0);
+        }
+        analysis.add(in);
+    }
+    public GameText remenber(){
+        GameText temp = new GameText();
+        for (String analysi : analysis) {
+            temp.concat(analysi);
+        }
+        return temp;
+    }
 }
 
