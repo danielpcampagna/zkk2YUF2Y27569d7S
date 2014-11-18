@@ -18,6 +18,13 @@ public class CharacterAtributes {
 
     private int inteligence;
 
+    public CharacterAtributes(int force, int resistence, int agility, int inteligence) {
+        this.force = force;
+        this.resistence = resistence;
+        this.agility = agility;
+        this.inteligence = inteligence;
+    }
+
     public int getForce() {
         return force;
     }

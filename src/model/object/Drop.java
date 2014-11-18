@@ -13,6 +13,10 @@ import model.player.Game;
  */
 public class Drop extends Action{
 
+    public Drop(String itemDrop, String condition) {
+        super(itemDrop, condition);
+    }
+
     @Override
     public void process() {
          getGameText().concat(" dropar o " + getObj().getName() );

@@ -28,7 +28,7 @@ public class TAObject extends IObservable  {
     private String description;
     private String analysis;
     private String state;
-     public final static int TYPE = 1;
+     
      // </editor-fold> 
 
     // <editor-fold defaultstate="collapsed" desc=" Construtores "> 

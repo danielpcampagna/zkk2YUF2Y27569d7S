@@ -13,17 +13,21 @@ import model.player.Game;
  */
 public class Open extends Action {
 
-    private String nameDrop;
+  
+
+    public Open(String itemDrop, String condition) {
+        super(itemDrop, condition);
+    }
 
     @Override
     public void process() {
         getGameText().concat(" abrir o " + getObj().getName());
         //depois de aberto ele é removido
         Game.getInstance().getCharacter().getInventory().removeInventory(getObj());
-        if (nameDrop != null) {
-            getGameText().concat("ao abri-lo você encontrou " + nameDrop);
+        if (getItemDrop() != null) {
+            getGameText().concat("ao abri-lo você encontrou " +getItemDrop());
             //adiciona na sala atual o objeto encontrado.
-            Game.getInstance().getLocal().putRoom(ObjectFactory.getInstance().create(nameDrop));
+            Game.getInstance().getLocal().putRoom(ObjectFactory.getInstance().create(getItemDrop()));
         }
     }
 

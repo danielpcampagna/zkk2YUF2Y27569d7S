@@ -12,11 +12,11 @@ import model.player.Game;
  * @author fabio
  */
 public class Throw extends Action{
-    private String name;
 
-    public Throw(String name) {
-        this.name = name;
+    public Throw(String itemDrop, String condition) {
+        super(itemDrop, condition);
     }
+
     
     @Override
     public void process() {

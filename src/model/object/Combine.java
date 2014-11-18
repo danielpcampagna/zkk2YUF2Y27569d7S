@@ -12,12 +12,16 @@ import model.player.Game;
  * @author fabio
  */
 public class Combine extends Action{
-    private String nameCombined;
+
+    public Combine(String itemDrop, String condition) {
+        super(itemDrop, condition);
+    }
+    
     @Override
     public void process() {
-        getGameText().concat("combina-lo com " + getObj().getName() +"gerou o item "+ nameCombined);
+        getGameText().concat("combina-lo com " + getObj().getName() +"gerou o item "+ getItemDrop());
           //adiciona na sala atual o objeto encontrado.
-          Game.getInstance().getLocal().putRoom(ObjectFactory.getInstance().create(nameCombined));
+          Game.getInstance().getLocal().putRoom(ObjectFactory.getInstance().create(getItemDrop()));
           Game.getInstance().getCharacter().getInventory().removeInventory(getObj());
     }
     

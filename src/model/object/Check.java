@@ -13,6 +13,10 @@ import model.player.Game;
  */
 public class Check extends Action{
 
+    public Check(String itemDrop, String condition) {
+        super(itemDrop, condition);
+    }
+
     @Override
     public void process() {
         getGameText().concat(" observar o "+getObj().getName()+" : " + getObj().getAnalysis());

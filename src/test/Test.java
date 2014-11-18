@@ -16,8 +16,6 @@ import java.util.GregorianCalendar;
  */
 public class Test {
     public static void main(String[] args) {
-        GregorianCalendar calendar = new GregorianCalendar();
-        long tempo = calendar.get(Calendar.HOUR)*360 + calendar.get(Calendar.MINUTE)*60 + calendar.get(Calendar.SECOND);
-        System.out.println(calendar.get(Calendar.HOUR)*360 + calendar.get(Calendar.MINUTE)*60 + calendar.get(Calendar.SECOND)); 
+        
     }
 }

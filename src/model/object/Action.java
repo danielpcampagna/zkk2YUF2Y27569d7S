@@ -13,7 +13,22 @@ public abstract class Action {
     private TAObject obj;
     private GameText gameText;
     private Controler controler;
+    private String itemDrop;
     // template method simples
+
+    public Action(String itemDrop,String condition) {
+        this.itemDrop = itemDrop;
+        controler = ControlerFactory.getInstance().create(condition);
+    }
+
+    public String getItemDrop() {
+        return itemDrop;
+    }
+
+    public void setItemDrop(String itemDrop) {
+        this.itemDrop = itemDrop;
+    }
+    
     public void run(){
          if( controler.Unlock(gameText)){
          process();
