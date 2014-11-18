@@ -19,6 +19,7 @@ public class Drop extends Action{
          //remove da sala 
           Game.getInstance().getLocal().putRoom( getObj());
           Game.getInstance().getCharacter().getInventory().removeInventory(getObj());
+          
     }
     
 }

@@ -9,19 +9,7 @@ import model.object.TAObject;
 // #[regen=yes,id=DCE.F0256C05-B1E8-2CDD-81BF-B2E328F2B030]
 // </editor-fold> 
 public class IObservable {
-    private int type;
-   
 
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
-    
-    
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.01B230C5-DA36-F721-4870-807DBD3464C6]
     // </editor-fold> 
@@ -41,13 +29,9 @@ public class IObservable {
    //Notifica todos os observadores
     public void notifyObserver() {
         for (IObserver o : list) {
-            o.update(this);
+            o.update();
         }
     }
-    public void notifyObserver(TAObject obj) {
-        for (IObserver o : list) {
-            o.update(obj);
-        }
-    }
+   
 }
 

@@ -49,7 +49,11 @@ public class Room implements IObserver{
     }
 
     @Override
-    public void update(IObservable ob) {
+    public void update() {
+        visibility = 0;
+        for(TAObject in : objects.values()){
+            visibility+= in.getIluminity();
+        }
         
     }
 }

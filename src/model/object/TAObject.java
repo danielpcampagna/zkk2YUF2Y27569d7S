@@ -21,6 +21,7 @@ public class TAObject extends IObservable  {
      */
     // <editor-fold defaultstate="collapsed" desc=" Atributos "> 
     private int visibility;
+    private int iluminity;
     private int weight;
     private int size;
     private String name;
@@ -32,8 +33,20 @@ public class TAObject extends IObservable  {
 
     // <editor-fold defaultstate="collapsed" desc=" Construtores "> 
     public TAObject () {
-        setType(0);
+       
     }
+
+    public TAObject(int visibility, int iluminity, int weight, int size, String name, String description, String analysis, String state) {
+        this.visibility = visibility;
+        this.iluminity = iluminity;
+        this.weight = weight;
+        this.size = size;
+        this.name = name;
+        this.description = description;
+        this.analysis = analysis;
+        this.state = state;
+    }
+    
    // </editor-fold> 
 
     public String getDescription() {
@@ -92,7 +105,16 @@ public class TAObject extends IObservable  {
     public void setAnalysis(String analysis) {
         this.analysis = analysis;
     }
+    
      // </editor-fold> 
+
+    public int getIluminity() {
+        return iluminity;
+    }
+
+    public void setIluminity(int iluminity) {
+        this.iluminity = iluminity;
+    }
  
 }
 

@@ -5,5 +5,5 @@ package model.observer;
 // </editor-fold> 
 public interface IObserver {
 
-    public void update(IObservable ob);
+    public void update();
 }
