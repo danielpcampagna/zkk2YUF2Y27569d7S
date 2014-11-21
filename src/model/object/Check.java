@@ -19,7 +19,7 @@ public class Check extends Action{
 
     @Override
     public void process() {
-        getGameText().concat(" observar o "+getObj().getName()+" : " + getObj().getAnalysis());
+        getGameText().concat(" observar o objeto  "+getObj().getName()+" : " + getObj().getAnalysis());
         //adiciona a analise a memoria do personagem.
         Game.getInstance().getCharacter().getMemory().add(getObj().getAnalysis());
     }

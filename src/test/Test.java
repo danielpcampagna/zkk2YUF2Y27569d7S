@@ -5,10 +5,9 @@
  */
 package test;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import model.object.TAObject;
+import model.player.Game;
+import model.player.Character;
 
 /**
  *
@@ -16,6 +15,9 @@ import java.util.GregorianCalendar;
  */
 public class Test {
     public static void main(String[] args) {
-        
+        Game.getInstance().setCharacter(new Character(10,10,10,10));
+        TAObject obj = new TAObject(0, 10, 20, 2, "agua", "liquido h2o bebivel", "esta suja");
+        obj.run("check");
+        System.out.println(obj.getAction().getGameText().getText());
     }
 }

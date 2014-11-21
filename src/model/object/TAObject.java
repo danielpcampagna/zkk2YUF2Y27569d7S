@@ -27,8 +27,7 @@ public class TAObject extends IObservable  {
     private String name;
     private String description;
     private String analysis;
-    private String state;
-     
+    private Action action;
      // </editor-fold> 
 
     // <editor-fold defaultstate="collapsed" desc=" Construtores "> 
@@ -36,15 +35,14 @@ public class TAObject extends IObservable  {
        
     }
 
-    public TAObject(int visibility, int iluminity, int weight, int size, String name, String description, String analysis, String state) {
-        this.visibility = visibility;
+    public TAObject(int visibility, int iluminity, int weight, int size, String name, String description, String analysis){
         this.iluminity = iluminity;
         this.weight = weight;
         this.size = size;
         this.name = name;
         this.description = description;
         this.analysis = analysis;
-        this.state = state;
+       
     }
     
    // </editor-fold> 
@@ -78,14 +76,6 @@ public class TAObject extends IObservable  {
         return analysis;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
     public void setVisibility(int visibility) {
         this.visibility = visibility;
     }
@@ -106,7 +96,7 @@ public class TAObject extends IObservable  {
         this.analysis = analysis;
     }
     
-     // </editor-fold> 
+   
 
     public int getIluminity() {
         return iluminity;
@@ -115,6 +105,20 @@ public class TAObject extends IObservable  {
     public void setIluminity(int iluminity) {
         this.iluminity = iluminity;
     }
- 
+
+    public Action getAction() {
+        return action;
+    }
+
+    public void setAction(Action action) {
+        this.action = action;
+    }
+    
+      // </editor-fold> 
+    public void run(String select){
+        action = ActionFactory.getInstance().create(select, name);
+        action.setObj(this);
+        action.run();
+    }
 }
 

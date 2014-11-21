@@ -31,7 +31,7 @@ public class ObjectFactory {
         try {
             Scanner arq;
             arq = new Scanner(new File("objetos.bin"));
-            TAObject obj =  new TAObject(arq.nextInt(),arq.nextInt(),arq.nextInt(),arq.nextInt(),arq.next(),arq.next(),arq.next(),arq.next());
+            TAObject obj =  new TAObject(arq.nextInt(),arq.nextInt(),arq.nextInt(),arq.nextInt(),arq.next(),arq.next(),arq.next());
             if(obj.getName().equals(name))
                 return obj;
         } catch (FileNotFoundException ex) {

@@ -32,10 +32,8 @@ public class Character  {
     // #[regen=yes,id=DCE.0CEACD44-6C4F-7001-B836-3721ECE58057]
     // </editor-fold> 
     public Character (int force, int resistence, int agility, int inteligence) {
-        setForce(force);
-        setResistence(resistence);
-        setAgility(agility);
-        setInteligence(inteligence);
+        atb = new CharacterAtributes(force,  resistence,  agility, inteligence);
+        memory = new Memory(10);
     }
 
     

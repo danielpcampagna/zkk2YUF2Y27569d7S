@@ -12,6 +12,10 @@ package model.object;
 public class GameText {
     private String text;
 
+    public GameText() {
+        text = "";
+    }
+
     public String getText() {
         return text;
     }
@@ -19,7 +23,7 @@ public class GameText {
     public void setText(String text) {
         this.text = text;
     }
-    public void concat(String text){
-        this.text.concat(text);
+    public void concat(String in){
+        this.text += in;
     }
 }

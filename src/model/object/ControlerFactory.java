@@ -26,7 +26,7 @@ public class ControlerFactory {
     }
 
     public Controler create(String condition) {
-        String[] codes = condition.split("|");
+        String[] codes = condition.split(":");
         switch (codes[0]) {
             case "ON":
                 return new On();

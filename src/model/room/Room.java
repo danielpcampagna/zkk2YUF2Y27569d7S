@@ -20,6 +20,7 @@ public class Room implements IObserver{
     private Map<String, TAObject> objects;
     private Map<String, Door> doors;
     private int visibility;
+    private String description;
     public TAObject getObject(String name) {
         return objects.get(name);
     }

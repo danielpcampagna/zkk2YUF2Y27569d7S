@@ -1,5 +1,6 @@
 package model.player;
 
+import java.util.ArrayList;
 import java.util.List;
 import model.object.GameText;
 
@@ -18,6 +19,7 @@ public class Memory {
     // </editor-fold> 
     public Memory (int capacity) {
         this.capacity = capacity;
+        analysis = new ArrayList<String>();
     }
 
     public List<String> getAnalysis() {

@@ -18,6 +18,7 @@ public abstract class Action {
 
     public Action(String itemDrop,String condition) {
         this.itemDrop = itemDrop;
+        gameText = new GameText();
         controler = ControlerFactory.getInstance().create(condition);
     }
 
@@ -34,6 +35,7 @@ public abstract class Action {
          process();
          }
     }
+    
     public abstract void process();
     // <editor-fold defaultstate="collapsed" desc=" Gets e Sets "> 
 
