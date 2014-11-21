@@ -10,11 +10,13 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author fabio
  */
 public class ObjectFactory {
+
     private static ObjectFactory instance;
 
     private ObjectFactory() {
@@ -28,14 +30,32 @@ public class ObjectFactory {
     }
 
     public TAObject create(String name) {
+        Scanner arq = null;
         try {
-            Scanner arq;
-            arq = new Scanner(new File("objetos.bin"));
-            TAObject obj =  new TAObject(arq.nextInt(),arq.nextInt(),arq.nextInt(),arq.nextInt(),arq.next(),arq.next(),arq.next());
-            if(obj.getName().equals(name))
-                return obj;
+
+            arq = new Scanner(new File("objects.txt"));
+            while (arq.hasNextLine()) {
+                String infos = arq.nextLine();
+                String[] cut = infos.split(":");
+                int visibility = Integer.parseInt(cut[0]);
+                int iluminity = Integer.parseInt(cut[1]);
+                int weight = Integer.parseInt(cut[2]);
+                int size = Integer.parseInt(cut[3]);
+                String nameO = cut[4];
+                String description = cut[5];
+                String analysis = cut[6];
+                TAObject obj = new TAObject(visibility, iluminity, weight, size, nameO, description, analysis);
+
+                if (obj.getName()
+                        .equals(name)) {
+                    return obj;
+                }
+            }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(ObjectFactory.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ObjectFactory.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            arq.close();
         }
         return null;
     }

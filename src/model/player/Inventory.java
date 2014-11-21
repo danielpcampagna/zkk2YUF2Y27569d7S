@@ -1,6 +1,7 @@
 package model.player;
 
 
+import java.util.HashMap;
 import java.util.Map;
 import model.object.TAObject;
 import model.observer.IObservable;
@@ -10,9 +11,13 @@ import model.observer.IObserver;
 // #[regen=yes,id=DCE.6A5BC1C3-796F-F2BE-38F8-67A0CA35EB15]
 // </editor-fold> 
 public class Inventory {
-    public final static int TYPE = 2;
     private Map<String,TAObject> objects;
     private int capacity;
+
+    Inventory() {
+        objects = new HashMap<String,TAObject>();
+        capacity = 100;
+    }
 
     public boolean putInventory(TAObject obj) {
         if (capacity >=  obj.getSize()) {

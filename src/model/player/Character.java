@@ -34,6 +34,7 @@ public class Character  {
     public Character (int force, int resistence, int agility, int inteligence) {
         atb = new CharacterAtributes(force,  resistence,  agility, inteligence);
         memory = new Memory(10);
+        mInventory = new Inventory();
     }
 
     

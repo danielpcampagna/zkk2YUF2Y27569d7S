@@ -55,23 +55,23 @@ public class ActionFactory {
                         condition = arq.next();
                         itemDrop = arq.next();
                     }
-                }
-                switch (action) {
-                    case "atack":
-                        return new Atack(itemDrop, condition);
-                    case "check":
-                        return new Check(itemDrop, condition);
-                    case "combine":
-                        return new Combine(itemDrop, condition);
-                    case "drop":
-                        return new Drop(itemDrop, condition);
-                    case "get":
-                        return new Get(itemDrop, condition);
-                    case "open":
-                        return new Open(itemDrop, condition);
-                    case "throw":
-                        return new Throw(itemDrop, condition);
+                    switch (action) {
+                        case "atack":
+                            return new Atack(itemDrop, condition);
+                        case "check":
+                            return new Check(itemDrop, condition);
+                        case "combine":
+                            return new Combine(itemDrop, condition);
+                        case "drop":
+                            return new Drop(itemDrop, condition);
+                        case "get":
+                            return new Get(itemDrop, condition);
+                        case "open":
+                            return new Open(itemDrop, condition);
+                        case "throw":
+                            return new Throw(itemDrop, condition);
 
+                    }
                 }
             }
             return null;

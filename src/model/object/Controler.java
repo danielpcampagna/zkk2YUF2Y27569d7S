@@ -12,15 +12,9 @@ import model.player.Character;
  * @author fabio
  */
 public abstract class Controler {
-    private Character character;
+    
     public abstract boolean Unlock(GameText text);
 
-    public Character getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(Character character) {
-        this.character = character;
-    }
+   
     
 }

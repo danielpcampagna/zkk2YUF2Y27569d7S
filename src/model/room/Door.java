@@ -14,16 +14,28 @@ import model.object.GameText;
  */
 public class Door {
     private GameText text;
-    private String name;
     private String roomName;
-    private RoomFactory factory;
+   
     private Controler controler;
     public Room open(){
         if(controler.Unlock(text)){
-            return factory.create(roomName);
+            return RoomFactory.getInstance().create(roomName);
         }else{
             return null;
         }
+    }
+
+    public Door(String roomName) {
+        this.roomName = roomName;
+        text = new GameText();
+    }
+    
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
     }
    
 }
