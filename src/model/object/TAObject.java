@@ -36,6 +36,7 @@ public class TAObject extends IObservable  {
     }
 
     public TAObject(int visibility, int iluminity, int weight, int size, String name, String description, String analysis){
+        this.visibility = visibility;
         this.iluminity = iluminity;
         this.weight = weight;
         this.size = size;

@@ -78,6 +78,7 @@ public class Room implements IObserver {
         GameText out = new GameText();
         for (TAObject in : objects.values()) {
             if (visibility >= in.getVisibility()) {
+                System.err.println(in.getVisibility()+ " nome:"+in.getName());
                 out.setText(out.getText() + in.getName()+" " + in.getDescription()+"\n");
             }
         }
