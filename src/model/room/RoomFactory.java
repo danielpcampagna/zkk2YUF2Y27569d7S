@@ -37,15 +37,15 @@ public class RoomFactory {
             
             arq = new Scanner(new File("roons.txt"));
            while(arq.hasNext()){
-               String nameRoom = arq.next();
-               if(!nameRoom.equals(name)){
+               String line = arq.nextLine();
+               String[] components = line.split("#");
+               if(!components[0].equals(name)){
                    arq.nextLine();
                }else{
-                   String line = arq.nextLine();
-                   String[] components = line.split("#");
-                   String[] objects = components[0].split(":");
-                   String[] doors = components[1].split(":");
-                   room.setDescription(components[2]);
+                   room.setName(components[0]);
+                   String[] objects = components[1].split(":");
+                   String[] doors = components[2].split(":");
+                   room.setDescription(components[3]);
                    for (int i = 0; i < objects.length; i++) {
                        TAObject obj = ObjectFactory.getInstance().create(objects[i]);
                        if(obj!= null)

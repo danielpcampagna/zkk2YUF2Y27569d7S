@@ -58,6 +58,6 @@ public class CharacterAtributes {
     }
     
     public boolean checkAtributes(CharacterAtributes atb){
-       return atb.getForce()>=force && atb.getResistence()>= resistence && atb.getAgility()>= agility && atb.getInteligence() >= inteligence;
+       return atb.getForce()<=force && atb.getResistence()<= resistence && atb.getAgility()<= agility && atb.getInteligence() <= inteligence;
    }
 }

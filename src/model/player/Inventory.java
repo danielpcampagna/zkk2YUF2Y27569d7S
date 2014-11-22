@@ -29,7 +29,7 @@ public class Inventory {
     }
     public boolean removeInventory(TAObject obj){
         if(objects.containsKey(obj.getName())){
-            objects.remove(obj);
+            objects.remove(obj.getName(),obj);
             capacity +=  obj.getSize();
             return true;
         }

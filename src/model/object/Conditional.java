@@ -6,6 +6,7 @@
 package model.object;
 
 import model.player.CharacterAtributes;
+import model.player.Game;
 
 /**
  *
@@ -21,8 +22,8 @@ public class Conditional extends Controler {
 
     @Override
     public boolean Unlock(GameText text) {
-        if (getCharacter().checkAtributes(atb)) {
-            text.concat("você conseguiu ");
+        if (Game.getInstance().getCharacter().checkAtributes(atb)) {
+            text.concat("você possui atributos suficientes e conseguiu ");
             return true;
         } else {
             text.concat("você não conseguiu por falta de atributos ");

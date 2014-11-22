@@ -21,11 +21,15 @@ public class Open extends Action {
 
     @Override
     public void process() {
-        getGameText().concat(" abrir o " + getObj().getName());
+        getGameText().concat(" abrir o objeto " + getObj().getName());
         //depois de aberto ele é removido
+        if(Game.getInstance().getCharacter().getInventory().containsKey(getObj().getName()))
         Game.getInstance().getCharacter().getInventory().removeInventory(getObj());
-        if (getItemDrop() != null) {
-            getGameText().concat("ao abri-lo você encontrou " +getItemDrop());
+        else{
+            Game.getInstance().getLocal().removeRoom(getObj());
+        }
+        if (!getItemDrop().equals("NOT")) {
+            getGameText().concat(" ao abri-lo você encontrou " +getItemDrop());
             //adiciona na sala atual o objeto encontrado.
             Game.getInstance().getLocal().putRoom(ObjectFactory.getInstance().create(getItemDrop()));
         }

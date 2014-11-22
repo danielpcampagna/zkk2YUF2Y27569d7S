@@ -19,7 +19,7 @@ public class Drop extends Action{
 
     @Override
     public void process() {
-         getGameText().concat(" dropar o " + getObj().getName() );
+         getGameText().concat(" dropar o objeto " + getObj().getName() );
          //remove da sala 
           Game.getInstance().getLocal().putRoom( getObj());
           Game.getInstance().getCharacter().getInventory().removeInventory(getObj());

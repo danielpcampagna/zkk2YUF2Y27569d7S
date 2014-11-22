@@ -19,7 +19,7 @@ public class Get extends Action {
 
     @Override
     public void process() {
-        getGameText().concat(" pegar o " + getObj().getName() );
+        getGameText().concat(" pegar o objeto " + getObj().getName() );
          //remove da sala 
           Game.getInstance().getLocal().removeRoom( getObj());
           Game.getInstance().getCharacter().getInventory().putInventory(getObj());

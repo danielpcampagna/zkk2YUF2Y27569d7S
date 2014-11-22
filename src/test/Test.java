@@ -17,17 +17,51 @@ import model.room.RoomFactory;
  * @author fabio
  */
 public class Test {
+
     public static void main(String[] args) {
-        Game.getInstance().setCharacter(new Character(10,10,10,10));
+        Game.getInstance().setCharacter(new Character(10, 10, 10, 10));
         Game.getInstance().setLocal(RoomFactory.getInstance().create("teste"));
-        TAObject obj = ObjectFactory.getInstance().create("agua");
+        
+        TAObject obj = Game.getInstance().getLocal().getObject("agua");
         obj.run("check");
         System.out.println(obj.getAction().getGameText().getText());
-        obj = ObjectFactory.getInstance().create("chave");
+        
+        obj = Game.getInstance().getLocal().getObject("chave");
         obj.run("get");
         System.out.println(obj.getAction().getGameText().getText());
-        obj = ObjectFactory.getInstance().create("caixa");
+        
+        obj = Game.getInstance().getLocal().getObject("caixa");
         obj.run("open");
         System.out.println(obj.getAction().getGameText().getText());
+        
+        obj = Game.getInstance().getLocal().getObject("ouro");
+        obj.run("get");
+        System.out.println(obj.getAction().getGameText().getText());
+        
+        obj = Game.getInstance().getLocal().getObject("potion_verde");
+        obj.run("get");
+        System.out.println(obj.getAction().getGameText().getText());
+        
+        obj = Game.getInstance().getLocal().getObject("potion_vermelha");
+        obj.run("get");
+        System.out.println(obj.getAction().getGameText().getText());
+        
+        obj = Game.getInstance().getCharacter().getInventory().getObject("potion_verde");
+        obj.run("combine");
+        System.out.println(obj.getAction().getGameText().getText());
+        
+        obj = Game.getInstance().getCharacter().getInventory().getObject("ouro");
+        obj.run("drop");
+        System.out.println(obj.getAction().getGameText().getText());
+        
+        obj = Game.getInstance().getLocal().getObject("monstro1");
+        obj.run("atack");
+        System.out.println(obj.getAction().getGameText().getText());
+        
+        obj = Game.getInstance().getLocal().getObject("monstro2");
+        obj.run("atack");
+        System.out.println(obj.getAction().getGameText().getText());
+
+        System.err.println(Game.getInstance().getLocal().see().getText());
     }
 }

@@ -21,8 +21,12 @@ public class Atack extends Action{
     public void process() {
       getGameText().concat(" destruir o " + getObj().getName());
       //remover da sala o objeto destruido.
-       Game.getInstance().getLocal().removeRoom(getObj());
-      if(getItemDrop()!=null){
+      if(Game.getInstance().getCharacter().getInventory().containsKey(getObj().getName()))
+        Game.getInstance().getCharacter().getInventory().removeInventory(getObj());
+        else{
+            Game.getInstance().getLocal().removeRoom(getObj());
+        }
+      if(!getItemDrop().equals("NOT")){
           getGameText().concat("ao quebra-lo você encontrou " + getItemDrop());
           //adiciona na sala atual o objeto encontrado.
           Game.getInstance().getLocal().putRoom(ObjectFactory.getInstance().create(getItemDrop()));

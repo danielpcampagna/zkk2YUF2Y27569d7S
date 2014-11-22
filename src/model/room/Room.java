@@ -22,7 +22,16 @@ public class Room implements IObserver {
     private Map<String, Door> doors;
     private int visibility;
     private String description;
+    private String name;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     public Room() {
         this.objects = new HashMap<String, TAObject>();
         this.doors = new HashMap<String, Door>();
@@ -59,7 +68,7 @@ public class Room implements IObserver {
 
     public boolean removeRoom(TAObject obj) {
         if (objects.containsKey(obj.getName())) {
-            objects.remove(obj);
+            objects.remove(obj.getName(), obj);
             return true;
         }
         return false;
@@ -69,7 +78,7 @@ public class Room implements IObserver {
         GameText out = new GameText();
         for (TAObject in : objects.values()) {
             if (visibility >= in.getVisibility()) {
-                out.setText(out.getText() + in.getName() + in.getDescription());
+                out.setText(out.getText() + in.getName()+" " + in.getDescription()+"\n");
             }
         }
         return out;
