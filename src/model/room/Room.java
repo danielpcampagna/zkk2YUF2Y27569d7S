@@ -61,6 +61,7 @@ public class Room implements IObserver {
     public boolean putRoom(TAObject obj) {
         if (!objects.containsKey(obj.getName())) {
             objects.put(obj.getName(), obj);
+            obj.notifyObserver();
             return true;
         }
         return false;
@@ -69,6 +70,7 @@ public class Room implements IObserver {
     public boolean removeRoom(TAObject obj) {
         if (objects.containsKey(obj.getName())) {
             objects.remove(obj.getName(), obj);
+            obj.notifyObserver();
             return true;
         }
         return false;
@@ -76,9 +78,9 @@ public class Room implements IObserver {
 
     public GameText see() {
         GameText out = new GameText();
+        System.err.println(visibility);
         for (TAObject in : objects.values()) {
             if (visibility >= in.getVisibility()) {
-                System.err.println(in.getVisibility()+ " nome:"+in.getName());
                 out.setText(out.getText() + in.getName()+" " + in.getDescription()+"\n");
             }
         }

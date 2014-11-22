@@ -48,6 +48,7 @@ public class RoomFactory {
                    room.setDescription(components[3]);
                    for (int i = 0; i < objects.length; i++) {
                        TAObject obj = ObjectFactory.getInstance().create(objects[i]);
+                        obj.add(room);
                        if(obj!= null)
                            room.putRoom(obj);
                    }

@@ -22,6 +22,7 @@ public class Combine extends Action {
         getGameText().concat("combina-lo com " + getObj().getName() + " gerou o item " + getItemDrop());
         //adiciona na sala atual o objeto encontrado.
         Game.getInstance().getLocal().putRoom(ObjectFactory.getInstance().create(getItemDrop()));
+        Game.getInstance().getLocal().getObject(getItemDrop()).add(Game.getInstance().getLocal());
         if (Game.getInstance().getCharacter().getInventory().containsKey(getObj().getName())) {
             Game.getInstance().getCharacter().getInventory().removeInventory(getObj());
         } else {

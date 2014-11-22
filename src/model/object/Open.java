@@ -32,6 +32,7 @@ public class Open extends Action {
             getGameText().concat(" ao abri-lo você encontrou " +getItemDrop());
             //adiciona na sala atual o objeto encontrado.
             Game.getInstance().getLocal().putRoom(ObjectFactory.getInstance().create(getItemDrop()));
+            Game.getInstance().getLocal().getObject(getItemDrop()).add(Game.getInstance().getLocal());
         }
     }
 

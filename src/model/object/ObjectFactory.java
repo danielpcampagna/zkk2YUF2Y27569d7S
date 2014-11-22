@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.player.Game;
 
 /**
  *
@@ -46,8 +47,7 @@ public class ObjectFactory {
                 String analysis = cut[6];
                 TAObject obj = new TAObject(visibility, iluminity, weight, size, nameO, description, analysis);
 
-                if (obj.getName()
-                        .equals(name)) {
+                if (obj.getName().equals(name)) {
                     return obj;
                 }
             }
