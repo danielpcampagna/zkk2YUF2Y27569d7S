@@ -19,7 +19,7 @@ public class Atack extends Action{
     }
     @Override
     public void process() {
-      getGameText().concat(" destruir o " + getObj().getName());
+      getGameText().concat(" destruir o objeto " + getObj().getName());
       //remover da sala o objeto destruido.
       if(Game.getInstance().getCharacter().getInventory().containsKey(getObj().getName()))
         Game.getInstance().getCharacter().getInventory().removeInventory(getObj());

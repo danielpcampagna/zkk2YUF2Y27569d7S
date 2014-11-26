@@ -21,7 +21,7 @@ public class Test {
     public static void main(String[] args) {
         Game.getInstance().setCharacter(new Character(10, 10, 10, 10));
         Game.getInstance().setLocal(RoomFactory.getInstance().create("teste"));
-        
+        System.out.println(Game.getInstance().getLocal().see().getText());
         TAObject obj = Game.getInstance().getLocal().getObject("agua");
         obj.run("check");
         System.out.println(obj.getAction().getGameText().getText());
