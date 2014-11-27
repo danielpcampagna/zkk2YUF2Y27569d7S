@@ -116,9 +116,10 @@ public class TAObject extends IObservable  {
     }
     
       // </editor-fold> 
-    public void run(String select){
+    public void run(String select,TAObject affected){
         action = ActionFactory.getInstance().create(select, name);
         action.setObj(this);
+        action.setAffectedObject(affected);
         action.run();
     }
 }

@@ -20,10 +20,13 @@ public class Throw extends Action{
     
     @Override
     public void process() {
-          getGameText().concat(" jogou o objeto" + getObj().getName() );
+          getGameText().concat(" jogou o objeto" + getObj().getName() +" no  objeto " + getAffectedObject().getName() + " com isso você ");
          //remove da sala 
           Game.getInstance().getLocal().putRoom( getObj());
           Game.getInstance().getCharacter().getInventory().removeInventory(getObj());
+          
+          getAffectedObject().run("atack", null);
+          getGameText().concat(getAffectedObject().getAction().getGameText().getText());
     }
 
     

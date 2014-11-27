@@ -26,11 +26,16 @@ public class Atack extends Action{
         else{
             Game.getInstance().getLocal().removeRoom(getObj());
         }
-      if(!getItemDrop().equals("NOT")){
-          getGameText().concat("ao quebra-lo você encontrou " + getItemDrop());
+      if(!getItemDrop()[0].equals("NOT")){
+          getGameText().concat("ao quebra-lo você encontrou " );
+          for (int i = 0; i < getItemDrop().length; i++) {
+              getGameText().concat(getItemDrop()[i]);
+          }
           //adiciona na sala atual o objeto encontrado.
-          Game.getInstance().getLocal().putRoom(ObjectFactory.getInstance().create(getItemDrop()));
-          Game.getInstance().getLocal().getObject(getItemDrop()).add(Game.getInstance().getLocal());
+          for (int i = 0; i < getItemDrop().length; i++) {
+              Game.getInstance().getLocal().putRoom(ObjectFactory.getInstance().create(getItemDrop()[i]));
+              Game.getInstance().getLocal().getObject(getItemDrop()[i]).add(Game.getInstance().getLocal());
+          }
       }
     }
     

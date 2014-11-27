@@ -37,14 +37,15 @@ public class ObjectFactory {
             arq = new Scanner(new File("objects.txt"));
             while (arq.hasNextLine()) {
                 String infos = arq.nextLine();
-                String[] cut = infos.split(":");
-                int visibility = Integer.parseInt(cut[0]);
-                int iluminity = Integer.parseInt(cut[1]);
-                int weight = Integer.parseInt(cut[2]);
-                int size = Integer.parseInt(cut[3]);
-                String nameO = cut[4];
-                String description = cut[5];
-                String analysis = cut[6];
+                String[] cut = infos.split("#");
+                String[] attributes = cut[0].split(":");
+                int visibility = Integer.parseInt(attributes[0]);
+                int iluminity = Integer.parseInt(attributes[1]);
+                int weight = Integer.parseInt(attributes[2]);
+                int size = Integer.parseInt(attributes[3]);
+                String nameO = cut[1];
+                String description = cut[2];
+                String analysis = cut[3];
                 TAObject obj = new TAObject(visibility, iluminity, weight, size, nameO, description, analysis);
 
                 if (obj.getName().equals(name)) {
