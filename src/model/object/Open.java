@@ -29,7 +29,7 @@ public class Open extends Action {
         if (!getItemDrop()[0].equals("NOT")) {
             getGameText().concat(" ao abri-lo você encontrou ");
             for (int i = 0; i < getItemDrop().length; i++) {
-                getGameText().concat(getItemDrop()[i]);
+                getGameText().concat(getItemDrop()[i]+" , ");
             }
             //adiciona na sala atual o objeto encontrado.
             for (int i = 0; i < getItemDrop().length; i++) {

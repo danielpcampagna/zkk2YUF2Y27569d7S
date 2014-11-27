@@ -42,7 +42,7 @@ public class Combine extends Action {
             arq.close();
         }
         if (drop != null) {
-            getGameText().concat(" combinar o objeto " + getObj().getName() + "com o objeto " + getAffectedObject().getName() + " gerou o item ");
+            getGameText().concat(" combinar o objeto " + getObj().getName() + " com o objeto " + getAffectedObject().getName() + " gerou o item ");
             getGameText().concat(drop);
             //adiciona na sala atual o objeto encontrado.
             Game.getInstance().getLocal().putRoom(ObjectFactory.getInstance().create(drop));
