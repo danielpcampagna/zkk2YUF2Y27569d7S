@@ -35,7 +35,7 @@ public class RoomFactory {
         Room room = new Room();
         try {
             
-            arq = new Scanner(new File("roons.txt"));
+            arq = new Scanner(new File("src/roons.txt"));
            while(arq.hasNext()){
                String line = arq.nextLine();
                String[] components = line.split("#");

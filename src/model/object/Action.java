@@ -10,13 +10,14 @@ package model.object;
  * @author fabio
  */
 public abstract class Action {
+
     private TAObject obj;
     private GameText gameText;
     private Controler controler;
     private String itemDrop;
     // template method simples
 
-    public Action(String itemDrop,String condition) {
+    public Action(String itemDrop, String condition) {
         this.itemDrop = itemDrop;
         gameText = new GameText();
         controler = ControlerFactory.getInstance().create(condition);
@@ -29,13 +30,13 @@ public abstract class Action {
     public void setItemDrop(String itemDrop) {
         this.itemDrop = itemDrop;
     }
-    
-    public void run(){
-         if( controler.Unlock(gameText)){
-         process();
-         }
+
+    public void run() {
+        if (controler.Unlock(gameText)) {
+            process();
+        }
     }
-    
+
     public abstract void process();
     // <editor-fold defaultstate="collapsed" desc=" Gets e Sets "> 
 
@@ -46,8 +47,7 @@ public abstract class Action {
     public void setControler(Controler controler) {
         this.controler = controler;
     }
-    
-    
+
     public TAObject getObj() {
         return obj;
     }

@@ -10,8 +10,9 @@ public class Character  {
      * force
      */
      
-    private CharacterAtributes atb;
+    private String name;
     
+    private CharacterAtributes atb;
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.7DF80A01-46C6-6926-54C7-15D429C5D0FF]
@@ -31,12 +32,20 @@ public class Character  {
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.0CEACD44-6C4F-7001-B836-3721ECE58057]
     // </editor-fold> 
-    public Character (int force, int resistence, int agility, int inteligence) {
+    public Character (String name, int force, int resistence, int agility, int inteligence) {
         atb = new CharacterAtributes(force,  resistence,  agility, inteligence);
         memory = new Memory(10);
         mInventory = new Inventory();
+        this.setName(name);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
     public int getAgility () {
         return atb.getAgility();

@@ -19,7 +19,7 @@ import model.room.RoomFactory;
 public class Test {
 
     public static void main(String[] args) {
-        Game.getInstance().setCharacter(new Character(10, 10, 10, 10));
+        Game.getInstance().setCharacter(new Character("Name",10, 10, 10, 10));
         Game.getInstance().setLocal(RoomFactory.getInstance().create("teste"));
         
         TAObject obj = Game.getInstance().getLocal().getObject("agua");
