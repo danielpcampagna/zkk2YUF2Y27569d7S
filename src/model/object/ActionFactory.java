@@ -38,23 +38,22 @@ public class ActionFactory {
      */
 
     public Action create(String action, String objectName) {
+        Scanner arq=null;
         try {
             if (!actions.contains(action)) {
                 return null;
             }
-            Scanner arq;
+            
             arq = new Scanner(new File("actions.txt"));
-            while (arq.hasNext()) {
-                String name = arq.next();
+            while (arq.hasNextLine()) {
+                String line= arq.nextLine();
+                String[] cut = line.split("#");
+              
                 String condition = "";
                 String itemDrop = "";
-                if (!objectName.equals(name)) {
-                    arq.nextLine();
-                } else {
-                    for (int i = 0; i <= actions.indexOf(action); i++) {
-                        condition = arq.next();
-                        itemDrop = arq.next();
-                    }
+                if (objectName.equals(cut[0])) {
+                        condition = cut[actions.indexOf(action)*2+1];
+                        itemDrop = cut[actions.indexOf(action)*2+2];
                     switch (action) {
                         case "atack":
                             return new Atack(itemDrop, condition);
@@ -77,6 +76,8 @@ public class ActionFactory {
             return null;
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ObjectFactory.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            arq.close();
         }
         return null;
     }

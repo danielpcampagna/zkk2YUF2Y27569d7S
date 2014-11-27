@@ -11,22 +11,23 @@ package model.object;
  */
 public abstract class Action {
     private TAObject obj;
+    private TAObject affectedObject;
     private GameText gameText;
     private Controler controler;
-    private String itemDrop;
+    private String[] itemDrop;
     // template method simples
 
     public Action(String itemDrop,String condition) {
-        this.itemDrop = itemDrop;
+        this.itemDrop = itemDrop.split(":");
         gameText = new GameText();
         controler = ControlerFactory.getInstance().create(condition);
     }
 
-    public String getItemDrop() {
+    public String[] getItemDrop() {
         return itemDrop;
     }
 
-    public void setItemDrop(String itemDrop) {
+    public void setItemDrop(String[] itemDrop) {
         this.itemDrop = itemDrop;
     }
     
@@ -42,7 +43,7 @@ public abstract class Action {
     public Controler getControler() {
         return controler;
     }
-
+    
     public void setControler(Controler controler) {
         this.controler = controler;
     }
@@ -63,5 +64,15 @@ public abstract class Action {
     public void setGameText(GameText Text) {
         this.gameText = Text;
     }
+    
+    
  // </editor-fold>
+
+    public TAObject getAffectedObject() {
+        return affectedObject;
+    }
+
+    public void setAffectedObject(TAObject affectedObject) {
+        this.affectedObject = affectedObject;
+    }
 }
