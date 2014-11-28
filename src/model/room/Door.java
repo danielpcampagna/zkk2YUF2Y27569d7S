@@ -19,6 +19,19 @@ public class Door {
     private String roomNameB;
    
     private Controler controler;
+
+    public Controler getControler() {
+        return controler;
+    }
+
+    public void setControler(Controler controler) {
+        this.controler = controler;
+    }
+    public void setControler(String codigo) {
+        this.controler = ControlerFactory.getInstance().create(codigo);
+    }
+    
+    
     public Room open(){
         if(controler.Unlock(text)){
             return RoomFactory.getInstance().create(roomNameB);
