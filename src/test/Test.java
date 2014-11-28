@@ -59,7 +59,7 @@ public class Test {
         obj = Game.getInstance().getLocal().getObject("monstro2");
         obj.run("atack",null);
         System.out.println(obj.getAction().getGameText().getText());
-
+        System.out.println("inventario: "+Game.getInstance().getCharacter().getInventory().see().getText());
         System.out.println(Game.getInstance().getLocal().see().getText());
         Game.getInstance().setLocal(Game.getInstance().getLocal().getDoors().get("teste:room1").open());
         System.out.println(Game.getInstance().getLocal().see().getText());
