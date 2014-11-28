@@ -3,6 +3,7 @@ package model.player;
 
 import java.util.HashMap;
 import java.util.Map;
+import model.object.GameText;
 import model.object.TAObject;
 import model.observer.IObservable;
 import model.observer.IObserver;
@@ -13,7 +14,7 @@ import model.observer.IObserver;
 public class Inventory {
     private Map<String,TAObject> objects;
     private int capacity;
-
+   
     Inventory() {
         objects = new HashMap<String,TAObject>();
         capacity = 100;
@@ -64,5 +65,13 @@ public class Inventory {
     }
     public boolean containsKey(String name){
         return objects.containsKey(name);
+    }
+    public GameText see() {
+        GameText out = new GameText();
+      
+        for (TAObject in : objects.values()) {
+                out.setText(out.getText() + in.getName()+" " + in.getDescription()+"\n");
+        }
+        return out;
     }
 }
