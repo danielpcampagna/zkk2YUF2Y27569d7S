@@ -32,7 +32,7 @@ public class Key extends Controler {
         }
     }
     @Override
-    public String getCodigo() {
+    public String getCode() {
         return "KEY:"+name;
     }
 }

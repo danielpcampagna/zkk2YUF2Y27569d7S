@@ -17,7 +17,7 @@ public class Off extends Controler{
         return false;
     }
     @Override
-    public String getCodigo() {
+    public String getCode() {
         return "OFF:";
     }
 }

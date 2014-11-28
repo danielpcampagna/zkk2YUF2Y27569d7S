@@ -31,7 +31,7 @@ public class Conditional extends Controler {
         }
     }
     @Override
-    public String getCodigo() {
+    public String getCode() {
         return "CONDITIONAL:"+atb.getForce()+":"+atb.getResistence()+":"+atb.getAgility()+":"+atb.getInteligence();
     }
 }

@@ -17,7 +17,7 @@ public abstract class Controler {
     public static final String CONDITIONAL = "CONDITIONAL:";
     public static final String KEY = "KEY:";
     public abstract boolean Unlock(GameText text);
-    public abstract String getCodigo();
+    public abstract String getCode();
 
    
     
