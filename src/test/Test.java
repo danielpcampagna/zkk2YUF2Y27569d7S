@@ -61,5 +61,6 @@ public class Test {
         System.out.println(obj.getAction().getGameText().getText());
 
         System.err.println(Game.getInstance().getLocal().see().getText());
+        
     }
 }

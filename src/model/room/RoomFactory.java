@@ -39,9 +39,8 @@ public class RoomFactory {
            while(arq.hasNext()){
                String line = arq.nextLine();
                String[] components = line.split("#");
-               if(!components[0].equals(name)){
-                   arq.nextLine();
-               }else{
+               if(components[0].equals(name)){
+                 
                    room.setName(components[0]);
                    String[] objects = components[1].split(":");
                    String[] doors = components[2].split(":");

@@ -35,9 +35,7 @@ public class DoorFactory {
            while(arq.hasNext()){
                String line = arq.nextLine();
                String[] components = line.split("#");
-               if(!components[0].equals(name)){
-                   arq.nextLine();
-               }else{
+               if(components[0].equals(name)){
                    String[] roonsName = components[0].split(":");
                    door = new Door(roonsName[0],roonsName[1],components[1]);
                    return door;
