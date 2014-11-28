@@ -36,7 +36,7 @@ public class RoomFactory {
         try {
             
             arq = new Scanner(new File("roons.txt"));
-           while(arq.hasNext()){
+           while(arq.hasNextLine()){
                String line = arq.nextLine();
                String[] components = line.split("#");
                if(components[0].equals(name)){
