@@ -6,6 +6,7 @@
 package model.room;
 
 import model.object.Controler;
+import model.object.ControlerFactory;
 import model.object.GameText;
 
 /**
@@ -14,28 +15,39 @@ import model.object.GameText;
  */
 public class Door {
     private GameText text;
-    private String roomName;
+    private String roomNameA;
+    private String roomNameB;
    
     private Controler controler;
     public Room open(){
         if(controler.Unlock(text)){
-            return RoomFactory.getInstance().create(roomName);
+            return RoomFactory.getInstance().create(roomNameB);
         }else{
             return null;
         }
     }
 
-    public Door(String roomName) {
-        this.roomName = roomName;
+    public Door(String roomNameA,String roomNameB,String condition) {
+        this.roomNameA = roomNameA;
+        this.roomNameB = roomNameB;
+        controler = ControlerFactory.getInstance().create(condition);
         text = new GameText();
     }
     
-    public String getRoomName() {
-        return roomName;
+    public String getRoomNameA() {
+        return roomNameA;
     }
 
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
+    public void setRoomNameA(String roomNameA) {
+        this.roomNameA = roomNameA;
+    }
+
+    public String getRoomNameB() {
+        return roomNameB;
+    }
+
+    public void setRoomNameB(String roomNameB) {
+        this.roomNameB = roomNameB;
     }
    
 }

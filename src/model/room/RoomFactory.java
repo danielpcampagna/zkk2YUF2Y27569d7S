@@ -53,7 +53,7 @@ public class RoomFactory {
                            room.putRoom(obj);
                    }
                    for (int i = 0; i < doors.length; i++) {
-                       Door door = new Door(doors[i]);
+                       Door door = DoorFactory.getInstance().create(components[0]+":"+doors[0]);
                        room.addDoor(door);
                    }
                    return room;
