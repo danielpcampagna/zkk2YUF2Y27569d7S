@@ -31,4 +31,8 @@ public class Key extends Controler {
             return true;
         }
     }
+    @Override
+    public String getCodigo() {
+        return "KEY:"+name;
+    }
 }

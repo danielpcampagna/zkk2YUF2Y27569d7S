@@ -14,6 +14,7 @@ import model.player.Character;
 public abstract class Controler {
     
     public abstract boolean Unlock(GameText text);
+    public abstract String getCodigo();
 
    
     

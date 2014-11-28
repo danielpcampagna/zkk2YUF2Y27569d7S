@@ -16,5 +16,10 @@ public class On extends Controler{
         text.concat("você conseguiu ");
         return true;
     }
+
+    @Override
+    public String getCodigo() {
+        return "ON:";
+    }
     
 }

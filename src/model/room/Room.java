@@ -41,7 +41,9 @@ public class Room implements IObserver {
     public TAObject getObject(String name) {
         return objects.get(name);
     }
-
+    public boolean contain(String name){
+        return objects.containsKey(name);
+    }
     public boolean addDoor(Door door) {
         if (!doors.containsKey(door.getRoomNameA()+":"+door.getRoomNameB())) {
             doors.put(door.getRoomNameA()+":"+door.getRoomNameB(), door);

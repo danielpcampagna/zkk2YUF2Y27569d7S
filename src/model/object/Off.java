@@ -16,4 +16,8 @@ public class Off extends Controler{
         text.concat("você não conseguiu ");
         return false;
     }
+    @Override
+    public String getCodigo() {
+        return "OFF:";
+    }
 }
