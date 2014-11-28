@@ -32,7 +32,8 @@ public class Combine extends Action {
             while (arq.hasNextLine()) {
                 String line = arq.nextLine();
                 String[] cut = line.split("#");
-                if (cut[0].equals(getObj().getName()) && cut[1].equals(getAffectedObject().getName())) {
+                if ((cut[0].equals(getObj().getName()) && cut[1].equals(getAffectedObject().getName()))
+                        || (cut[1].equals(getObj().getName()) && cut[0].equals(getAffectedObject().getName()))) {
                     drop = cut[2];
                 }
             }
