@@ -60,7 +60,8 @@ public class Test {
         obj.run("atack",null);
         System.out.println(obj.getAction().getGameText().getText());
 
-        System.err.println(Game.getInstance().getLocal().see().getText());
-        
+        System.out.println(Game.getInstance().getLocal().see().getText());
+        Game.getInstance().setLocal(Game.getInstance().getLocal().getDoors().get("teste:room1").open());
+        System.out.println(Game.getInstance().getLocal().see().getText());
     }
 }
