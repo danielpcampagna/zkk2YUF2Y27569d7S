@@ -11,20 +11,22 @@ import model.player.Game;
  *
  * @author fabio
  */
-public class Throw extends Action{
+public class Throw extends Action {
 
     public Throw(String itemDrop, String condition) {
         super(itemDrop, condition);
     }
 
-    
     @Override
     public void process() {
-          getGameText().concat(" jogou o " + getObj().getName() );
-         //remove da sala 
-          Game.getInstance().getLocal().putRoom( getObj());
-          Game.getInstance().getCharacter().getInventory().removeInventory(getObj());
+        getGameText().concat(" jogou o objeto" + getObj().getName());
+        //remove da sala 
+        Game.getInstance().getLocal().putRoom(getObj());
+        Game.getInstance().getCharacter().getInventory().removeInventory(getObj());
+
+        getAffectedObject().run("atack", null);
+        getGameText().concat(getAffectedObject().getAction().getGameText().getText());
+
     }
 
-    
 }

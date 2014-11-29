@@ -14,12 +14,12 @@ import java.io.IOException;
  */
 public class IODataExistingException extends IOException{
 
-    public IODataExistingException(String já_existe_um_Jogador_com_essas_caracterís) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public IODataExistingException(String msg) {
+        super(msg);
     }
 
     public IODataExistingException() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        super();
     }
     
     

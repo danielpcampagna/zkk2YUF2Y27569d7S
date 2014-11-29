@@ -12,8 +12,7 @@ package exception;
  */
 public class IONotFoundDataException extends IODataExistingException{
 
-    public IONotFoundDataException(String já_existe_um_Jogador_com_essas_caracterís) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public IONotFoundDataException(String msg) {
+        super(msg);
     }
-    
 }

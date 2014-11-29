@@ -6,10 +6,7 @@
 package db;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.channels.FileChannel;
 import model.player.Player;
 
 /**
@@ -18,32 +15,59 @@ import model.player.Player;
  */
 public class DirectoriesManager {
 
-    private static final String rootDefault = "src/bd/data/";
+    /**
+     * rootDefault = "src/db/data/"
+     */
+    private static final String rootDefault = "src/db/data/";
+    /**
+     * rootPlayer = "saves/"
+     */
     private static final String rootPlayer = "saves/";
+    
+    private static final String action = "actions";
+    private static final String character = "characters";
+    private static final String dictionary = "dictionary";
+    private static final String doors = "doors";
     private static final String players = "players";
     private static final String game = "games";
-    private static final String action = "actions";
     private static final String object = "objects";
-    private static final String room = "rooms";
-    private static final String character = "character";
+    private static final String room = "roons";
+    
 
     private static String currentPlayer;
     private static DirectoriesManager instance = null;
     private static String rootCurrentPlayer;
 
     public static DirectoriesManager newInstace(Player player) throws IOException {
-        instance = new DirectoriesManager(player);
-        createNewSave();
-        return instance;
+        if (!new File(rootCurrentPlayer = rootPlayer + player.getLogin() + "/").exists()) {
+            createNewSave();
+        }
+        return changeInstace(player);
     }
+
     public static DirectoriesManager changeInstace(Player player) throws IOException {
-        if(!new File(rootPlayer + player.getLogin()).exists()) return null;
-        instance = new DirectoriesManager(player);
-        return instance;
+        if (new File(rootCurrentPlayer = rootPlayer + player.getLogin() + "/").exists()) {
+            if(currentPlayer != null && currentPlayer.trim().equals(player.getLogin())){
+                return instance;
+            }
+            instance = new DirectoriesManager(player);
+            return instance;
+        }
+        return null;
     }
+
     public static DirectoriesManager getInstance() {
         return instance;
     }
+
+    static String getDictionary() {
+        return rootDefault + dictionary;
+    }
+
+    public static String getDoorFile() {
+        return rootCurrentPlayer + doors;
+    }
+
     private DirectoriesManager(Player player) throws IOException {
         currentPlayer = player.getLogin();
         rootCurrentPlayer = rootPlayer + currentPlayer + "/";
@@ -56,49 +80,32 @@ public class DirectoriesManager {
     private static void createNewSave() throws IOException {
         File source = new File(rootDefault);
         File destination = new File(rootCurrentPlayer);
-        if (destination.exists()) {
-            destination.delete();
-        }
-
-        FileChannel sourceChannel = null;
-        FileChannel destinationChannel = null;
-
-        try {
-            sourceChannel = new FileInputStream(source).getChannel();
-            destinationChannel = new FileOutputStream(destination).getChannel();
-            sourceChannel.transferTo(0, sourceChannel.size(),
-                    destinationChannel);
-        } finally {
-            if (sourceChannel != null && sourceChannel.isOpen()) {
-                sourceChannel.close();
-            }
-            if (destinationChannel != null && destinationChannel.isOpen()) {
-                destinationChannel.close();
-            }
-        }
+        CopyDirectory.copyDirectory(source, destination);
     }
 
-    public static String getPlayerFile(){
-        return rootDefault + game;
+    public static String getPlayerFile() {
+        return rootDefault + players;
+    }
+
+    public static String getGameFile() {
+        return rootCurrentPlayer + game;
     }
     
-    public static String getGameFile(){
-        return rootDefault + game;
-    }
-    
-    public static String getActionFile(){
+    public static String getActionFile() {
         return rootCurrentPlayer + action;
+//        return rootDefault + action;
     }
-    
-    public static String getObjectFile(){
+
+    public static String getObjectFile() {
         return rootCurrentPlayer + object;
+//        return rootDefault + object;
     }
-    
-    public static String getRoomFile(){
+
+    public static String getRoomFile() {
         return rootCurrentPlayer + room;
     }
-    
-    public static String getCharacterFile(){
+
+    public static String getCharacterFile() {
         return rootCurrentPlayer + character;
     }
 }

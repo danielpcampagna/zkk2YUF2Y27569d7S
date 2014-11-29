@@ -9,11 +9,16 @@ package model.object;
  *
  * @author fabio
  */
-public class Off extends Controler{
+public class Off extends Controler {
 
     @Override
     public boolean Unlock(GameText text) {
         text.concat("você não conseguiu ");
         return false;
+    }
+
+    @Override
+    public String getCode() {
+        return "OFF:";
     }
 }

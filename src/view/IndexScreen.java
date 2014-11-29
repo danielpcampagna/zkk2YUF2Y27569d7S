@@ -33,24 +33,24 @@ public class IndexScreen implements IView {
 
     @Override
     public void show() {
-        int op;
+        String op;
         while (true) {
             do {
                 my.show();
-                op = keyboard.nextInt();
+                op = keyboard.nextLine();
                 switch (op) {
-                    case 1:
-                        nextView = new CreatePlayerScreen(new PlayerController(new Player()));
-                        break;
-                    case 2:
+                    case "1":
                         nextView = new LoginScreen();
                         break;
-                    case 3:
+                    case "2":
+                        nextView = new CreatePlayerScreen(new PlayerController(new Player()));
+                        break;
+                    case "3":
                         System.exit(0);
                     default:
-                        nextView = new SimpleMessage(SimpleMessage.ERRO, "Erro", "Opção não existente!");
+                        new SimpleMessage(SimpleMessage.ERRO, "Erro", "Opção inexistente!").show();
                 }
-            } while (op != 1 && op != 2);
+            } while (!op.equals("1") && !op.equals("2"));
             nextView.show();
         }
     }

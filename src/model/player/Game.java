@@ -12,6 +12,9 @@ public class Game {
 
     private static Game instance;
     private Game(){}
+    public static synchronized Game newInstance(){
+        return new Game();
+    }
     public static synchronized Game getInstance(){
         if(instance==null)
             instance = new Game();
@@ -43,17 +46,13 @@ public class Game {
     public void setLocal(Room local) {
         this.local = local;
     }
-
-    public Character getmCharacter() {
-        return mCharacter;
-    }
-
-    public void setmCharacter(Character mCharacter) {
-        this.mCharacter = mCharacter;
-    }
     
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
 }

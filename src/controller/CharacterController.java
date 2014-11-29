@@ -6,7 +6,7 @@
 
 package controller;
 
-import dao.FactoryDao;
+import dao.DaoFactory;
 import dao.IDao;
 import exception.IOEmptyTableException;
 import exception.IODataExistingException;
@@ -18,10 +18,14 @@ import model.player.Character;
  *
  * @author Daniel
  */
-class CharacterController extends IController<Character> {
+public class CharacterController extends IController<Character> {
 
     
     public CharacterController(Character character) {
+        if (character == null) {
+            throw new IllegalArgumentException(CharacterController.class.getCanonicalName()
+                    + ".Character é nulo");
+        }
         model = character;
     }
 
@@ -37,7 +41,8 @@ class CharacterController extends IController<Character> {
 
     @Override
     public Character find(Character id) throws IOEmptyTableException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        IDao character = DaoFactory.getCharacterDao(DaoFactory.TXT);
+        return (Character) character.find(id.getName());
     }
 
     @Override
@@ -47,13 +52,12 @@ class CharacterController extends IController<Character> {
 
     @Override
     public boolean save() throws IODataExistingException {
-        IDao dao = FactoryDao.getCharacterDao(FactoryDao.TXT);
-        dao.save(this.model);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        IDao dao = DaoFactory.getCharacterDao(DaoFactory.TXT);
+        return dao.save(this.model);
     }
 
     @Override
-    public boolean update() throws IONotFoundDataException {
+    public boolean update(Character obj) throws IONotFoundDataException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

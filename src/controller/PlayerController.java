@@ -5,15 +5,16 @@
  */
 package controller;
 
-import dao.FactoryDao;
+import dao.DaoFactory;
 import dao.IDao;
 import db.DirectoriesManager;
-import exception.IOEmptyTableException;
 import exception.IODataExistingException;
+import exception.IOEmptyTableException;
 import exception.IONotFoundDataException;
 import java.io.IOException;
 import java.util.List;
 import model.player.Game;
+import model.player.Character;
 import model.player.Player;
 
 /**
@@ -41,9 +42,13 @@ public class PlayerController extends IController<Player> {
     public String getLogin() {
         return model.getLogin();
     }
-    
-    public Game getGame(){
+
+    public List<Game> getGame() {
         return model.getGame();
+    }
+
+    public void setGame(List<Game> games) {
+        this.model.setGame(games);
     }
 
     public String getSenha() {
@@ -62,16 +67,16 @@ public class PlayerController extends IController<Player> {
 
     @Override
     public Player find(Player id) throws IOEmptyTableException {
-        IDao Player = FactoryDao.getPlayerDao(FactoryDao.TXT);
-        Player p = (Player)Player.find(id.getLogin());
-        if(p.getLogin().equals(id.getLogin())
+        IDao Player = DaoFactory.getPlayerDao(DaoFactory.TXT);
+        Player p = (Player) Player.find(id.getLogin());
+        if (p != null
+                && p.getLogin().trim().equals(id.getLogin().trim())
                 && id.getPassword() != null
-                && id.getPassword().equals("")
-                && p.getPassword().equals(id.getPassword())){
+                && p.getPassword().equals(id.getPassword())) {
             return p;
         }
         return null;
-        
+
     }
 
     @Override
@@ -82,11 +87,12 @@ public class PlayerController extends IController<Player> {
     @Override
     public boolean save() throws IODataExistingException {
         try {
-            if (DirectoriesManager.changeInstace(this.model) != null) {
+            IDao player = DaoFactory.getPlayerDao(DaoFactory.TXT);
+            if (player.find(this.model.getLogin()) != null && DirectoriesManager.changeInstace(this.model) != null) {
                 throw new IODataExistingException("Já existe um Jogador com essas características");
             }
             DirectoriesManager.newInstace(this.model);
-            IDao player = FactoryDao.getPlayerDao(FactoryDao.TXT);
+
             return player.save(this.model);
         } catch (IOException ex) {
             return false;
@@ -94,19 +100,22 @@ public class PlayerController extends IController<Player> {
     }
 
     @Override
-    public boolean update() throws IONotFoundDataException {
+    public boolean update(Player obj) throws IONotFoundDataException {
         try {
-            if (DirectoriesManager.changeInstace(this.model) == null) {
+            if (DirectoriesManager.changeInstace(obj) == null) {
                 throw new IONotFoundDataException("Já existe um Jogador com essas características");
             }
-            if (this.model.getGame() != null) {
-                IController game = new GameController(this.model.getGame());
-                game.save();
-                IDao gameDao = FactoryDao.getGameDao(FactoryDao.TXT);
-                gameDao.save(this.model);
-            }
-            IDao playerDao = FactoryDao.getPlayerDao(FactoryDao.TXT);
-            return playerDao.save(this.model);
+//            if (obj.getGame() != null) {
+//                for (Game g : obj.getGame()) {
+//                    IController game = new GameController(g);
+//                    game.save();
+//                }
+
+//                IDao gameDao = DaoFactory.getGameDao(DaoFactory.TXT);
+//                gameDao.save(this.model);
+//            }
+            IDao playerDao = DaoFactory.getPlayerDao(DaoFactory.TXT);
+            return playerDao.update(obj);
         } catch (IOException ex) {
             return false;
         }
@@ -119,6 +128,10 @@ public class PlayerController extends IController<Player> {
 
     @Override
     public void clear() {
+    }
+
+    public void addGame(Game game) {
+        this.model.getGame().add(game);
     }
 
 }

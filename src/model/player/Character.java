@@ -13,10 +13,7 @@ public class Character  {
     private String name;
     
     private CharacterAtributes atb;
-
-    // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
-    // #[regen=yes,id=DCE.7DF80A01-46C6-6926-54C7-15D429C5D0FF]
-    // </editor-fold> 
+    
     private Inventory mInventory;
     
     private Memory memory;

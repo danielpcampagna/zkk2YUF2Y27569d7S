@@ -21,6 +21,10 @@ public final class SimpleMessage implements IView {
     public static final String BAR = "-";
     public static final String PIPE = "|";
     public static final String NONE = " ";
+    
+    public static final int MAX_W = 60;
+    public static final int MIN_W = 20;
+    public static final int MID_W = (MAX_W + MIN_W) /2;
 
     private String horizontal = HASH;
     private String vertical = HASH;
@@ -37,9 +41,18 @@ public final class SimpleMessage implements IView {
         this("", message);
         this.hasTitle = false;
     }
+    
+    public SimpleMessage(String message, int width) throws IllegalArgumentException {
+        this("", message, width);
+        this.hasTitle = false;
+    }
 
     public SimpleMessage(String title, String message) throws IllegalArgumentException {
         this(NO, title, message);
+    }
+    
+    public SimpleMessage(String title, String message, int width) throws IllegalArgumentException {
+        this(NO, title, message, width);
     }
 
     public SimpleMessage(String symbol, String title, String message) throws IllegalArgumentException {

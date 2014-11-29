@@ -18,6 +18,11 @@ import java.util.List;
 public abstract class IController<T> {
     
     T model;
+
+    public T getModel() {
+        return model;
+    }
+    
     /**
      * This operation load the element with the highest id
      * 
@@ -62,7 +67,7 @@ public abstract class IController<T> {
      * @return the List with elements. If there isn't any element in database, 
      * will return null list
      */
-    public abstract List<T> loadAll();
+    public abstract List<T> loadAll()throws IOEmptyTableException;
 
     /**
      * This operation will save this element in database.
@@ -77,7 +82,17 @@ public abstract class IController<T> {
      * @return True, in positive case
      * @throws IONotFoundDataException 
      */
-    public abstract boolean update() throws IONotFoundDataException;
+    public boolean update() throws IONotFoundDataException{
+        return update(this.model);
+    }
+    
+    /**
+     * This operation will update this element in database
+     * 
+     * @return True, in positive case
+     * @throws IONotFoundDataException 
+     */
+    public abstract boolean update(T obj) throws IONotFoundDataException;
 
     /**
      * This operation will delete this element in database

@@ -1,23 +1,25 @@
 package model.object;
 
-
 import model.observer.IObservable;
 import model.observer.IObserver;
 import model.player.Character;
 
-
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.EC3BFABA-A36E-F5CF-4486-FDF2640ADCAE]
 // </editor-fold> 
-public class TAObject extends IObservable  {
+public class TAObject extends IObservable {
+
     /**
-     * ID : identificardor unico do objeto; 
-     * visibility: coeficiênte de visibilidade, 0 a 100 ,caso o coeficiênto do local for maior que do objeto o mesmo se torna visivel.
-     * damaged: coeficiênte de danos , 0 a 10,ao receber um ataque,caso a força do personagem + damaged > 10 o objeto quebra.
-     * weight: coeficiênte de peso,0 a 10,a força do personagem deve ser maior que o peso do objeto para pega-lo ou taca-lo.
-     * size : coeficiênte de tamanho , 0 a 100, utilizado para verificar se o personagem podera colocar o item no inventario.
-     * description : descrição comum do objeto ao ser visto pelo jogador.
-     * analysis : descrição do objeto ao ser checado pelo jogador;
+     * ID : identificardor unico do objeto; visibility: coeficiênte de
+     * visibilidade, 0 a 100 ,caso o coeficiênto do local for maior que do
+     * objeto o mesmo se torna visivel. damaged: coeficiênte de danos , 0 a
+     * 10,ao receber um ataque,caso a força do personagem + damaged > 10 o
+     * objeto quebra. weight: coeficiênte de peso,0 a 10,a força do personagem
+     * deve ser maior que o peso do objeto para pega-lo ou taca-lo. size :
+     * coeficiênte de tamanho , 0 a 100, utilizado para verificar se o
+     * personagem podera colocar o item no inventario. description : descrição
+     * comum do objeto ao ser visto pelo jogador. analysis : descrição do objeto
+     * ao ser checado pelo jogador;
      */
     // <editor-fold defaultstate="collapsed" desc=" Atributos "> 
     private int visibility;
@@ -31,11 +33,11 @@ public class TAObject extends IObservable  {
      // </editor-fold> 
 
     // <editor-fold defaultstate="collapsed" desc=" Construtores "> 
-    public TAObject () {
-       
+    public TAObject() {
+
     }
 
-    public TAObject(int visibility, int iluminity, int weight, int size, String name, String description, String analysis){
+    public TAObject(int visibility, int iluminity, int weight, int size, String name, String description, String analysis) {
         this.visibility = visibility;
         this.iluminity = iluminity;
         this.weight = weight;
@@ -43,11 +45,10 @@ public class TAObject extends IObservable  {
         this.name = name;
         this.description = description;
         this.analysis = analysis;
-       
-    }
-    
-   // </editor-fold> 
 
+    }
+
+   // </editor-fold> 
     public String getDescription() {
         return description;
     }
@@ -96,8 +97,6 @@ public class TAObject extends IObservable  {
     public void setAnalysis(String analysis) {
         this.analysis = analysis;
     }
-    
-   
 
     public int getIluminity() {
         return iluminity;
@@ -114,12 +113,12 @@ public class TAObject extends IObservable  {
     public void setAction(Action action) {
         this.action = action;
     }
-    
-      // </editor-fold> 
-    public void run(String select){
+
+    // </editor-fold> 
+    public void run(String select, TAObject affected) {
         action = ActionFactory.getInstance().create(select, name);
         action.setObj(this);
+        action.setAffectedObject(affected);
         action.run();
     }
 }
-

@@ -1,0 +1,43 @@
+package db;
+
+import java.io.*;
+
+public class CopyDirectory {
+
+    public static void copyDirectory(File srcPath, File dstPath) throws IOException {
+        if (srcPath.isDirectory()) {
+            if (!dstPath.exists()) {
+//                System.out.println(dstPath.mkdirs());
+                dstPath.mkdirs();
+            }
+
+            String files[] = srcPath.list();
+            for (int i = 0; i < files.length; i++) {
+                copyDirectory(new File(srcPath, files[i]), new File(dstPath, files[i]));
+            }
+        } else {
+            if (!srcPath.exists()) {
+                System.out.println("File or directory does not exist.");
+                System.exit(0);
+            } else {
+                InputStream in = new FileInputStream(srcPath);
+                if (!dstPath.exists()) //                        System.out.println(dstPath.createNewFile());
+                {
+                    dstPath.createNewFile();
+                }
+
+                OutputStream out = new FileOutputStream(dstPath);
+
+                // Transfer bytes from in to out
+                byte[] buf = new byte[1024];
+                int len;
+                while ((len = in.read(buf)) > 0) {
+                    out.write(buf, 0, len);
+                }
+                in.close();
+                out.close();
+            }
+        }
+//        System.out.println("Directory copied.");
+    }
+}

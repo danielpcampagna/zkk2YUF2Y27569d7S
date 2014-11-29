@@ -1,9 +1,0 @@
-agua ON: NOT ON: NOT ON: NOT ON: NOT ON: NOT ON: NOT ON: NOT
-chave ON: NOT ON: NOT ON: NOT ON: NOT ON: NOT ON: NOT ON: NOT
-caixa ON: NOT ON: NOT ON: NOT ON: NOT ON: NOT KEY:chave ouro ON: NOT
-ouro ON: NOT ON: NOT ON: NOT ON: NOT CONDITIONAL:10:10:10:10 NOT ON NOT ON: NOT
-monstro1 CONDITIONAL:10:10:10:10 NOT ON: NOT ON: NOT ON: NOT ON: NOT ON NOT ON: NOT
-monstro2 OFF NOT ON: NOT ON: NOT ON: NOT ON: NOT ON NOT ON: NOT
-potion_verde ON: NOT ON: NOT KEY:potion_vermelha potion_rocha ON: NOT ON: NOT ON: NOT ON: NOT
-potion_vermelha ON: NOT ON: NOT KEY:potion_verde potion_rocha ON: NOT ON: NOT ON: NOT ON: NOT
-potion_rocha ON: NOT ON: NOT ON: NOT ON: NOT ON: NOT ON: NOT ON: NOT

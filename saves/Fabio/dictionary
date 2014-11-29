@@ -1,0 +1,11 @@
+atack#(atacar|bater|chutar|socar)#object
+check#(verificar|checar)#object
+combine#(combinar|misturar|ligar|fundir)#object:object
+drop#(soltar|largar)#object
+get#(obter|pegar|capturar|adquirir|receber|comprar)#object
+open#(abrir|romper|desobstruir)#object
+throw#(lançar|lancar|lance|arremecar|arremeçar)#object:object
+go#(andar|viajar|caminhar|ir|correr)#room
+inventory#(inventário|inventario|ver inventário|ver inventario|olhar inventário|olhar inventario)#
+see#(ver|olhar|observar)#
+exit#(sair|encerrar|exit)#

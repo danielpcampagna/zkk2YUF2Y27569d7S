@@ -22,7 +22,7 @@ public class Key extends Controler {
     @Override
     public boolean Unlock(GameText text) {
         if (Game.getInstance().getCharacter().getInventory().containsKey(name)) {
-            text.setText(text.getText() +"você usou "+name +  " e conseguiu ");
+            text.setText(text.getText() + "você usou " + name + " e conseguiu ");
             //removendo do inventario do personagem o item usado para liberar a ação.
             Game.getInstance().getCharacter().getInventory().removeInventory(Game.getInstance().getCharacter().getInventory().getObject(name));
             return true;
@@ -30,5 +30,10 @@ public class Key extends Controler {
             text.setText(text.getText() + "você não conseguiu pois não tinha o item necessário");
             return true;
         }
+    }
+
+    @Override
+    public String getCode() {
+        return "KEY:" + name;
     }
 }

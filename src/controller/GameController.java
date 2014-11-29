@@ -5,12 +5,14 @@
  */
 package controller;
 
-import dao.FactoryDao;
+import dao.DaoFactory;
 import dao.IDao;
 import exception.IOEmptyTableException;
 import exception.IODataExistingException;
 import exception.IONotFoundDataException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.player.Game;
 
 /**
@@ -18,7 +20,6 @@ import model.player.Game;
  * @author Daniel
  */
 public class GameController extends IController<Game> {
-
 
     public GameController(Game game) {
         if (game == null) {
@@ -40,28 +41,31 @@ public class GameController extends IController<Game> {
 
     @Override
     public Game find(Game id) throws IOEmptyTableException {
-        IDao gameDao = FactoryDao.getGameDao(FactoryDao.TXT);
-        return (Game)gameDao.find(id.getName());
+        IDao gameDao = DaoFactory.getGameDao(DaoFactory.TXT);
+        return (Game) gameDao.find(id.getName());
     }
 
     @Override
-    public List<Game> loadAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Game> loadAll() throws IOEmptyTableException {
+        IDao gameDao = DaoFactory.getGameDao(DaoFactory.TXT);
+        return (List<Game>) (Game) gameDao.loadAll();
     }
 
     @Override
     public boolean save() throws IODataExistingException {
-        IController charc = new CharacterController(Game.getInstance().getCharacter());
-        charc.save();
         // 1 - salvar o character
         // 2 - salvar a sala
-        // 3 - salvar os itens em cada sala
-        // 4 - salvar a sala
-        return true;
+//        CharacterController character = new CharacterController(this.model.getCharacter());
+//        character.save();
+//        RoomController room = new RoomController(this.model.getLocal());
+//        room.save();
+        IDao game = DaoFactory.getGameDao(DaoFactory.TXT);
+        return game.save(this.model);
+
     }
 
     @Override
-    public boolean update() throws IONotFoundDataException {
+    public boolean update(Game obj) throws IONotFoundDataException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

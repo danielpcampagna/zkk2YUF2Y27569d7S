@@ -1,5 +1,7 @@
 package model.player;
 
+import java.util.List;
+
 
 // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
 // #[regen=yes,id=DCE.82E5B47C-B29E-0935-83AA-63ED3D47A19D]
@@ -19,7 +21,7 @@ public class Player {
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.D68C0E2A-EF5C-4DA6-F77C-EBA0ED872EEE]
     // </editor-fold> 
-    private Game mGame;
+    private List<Game> mGame;
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,id=DCE.F2BC1CD5-8048-BCBA-BB72-B035DCB2873E]
@@ -76,14 +78,14 @@ public class Player {
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.CF55409D-D69E-8619-1903-2F340792DE4F]
     // </editor-fold> 
-    public Game getGame () {
+    public List<Game> getGame () {
         return mGame;
     }
 
     // <editor-fold defaultstate="collapsed" desc=" UML Marker "> 
     // #[regen=yes,regenBody=yes,id=DCE.3160E393-64AE-E715-5BAB-CE8750374FD1]
     // </editor-fold> 
-    public void setGame (Game val) {
+    public void setGame (List<Game> val) {
         this.mGame = val;
     }
 

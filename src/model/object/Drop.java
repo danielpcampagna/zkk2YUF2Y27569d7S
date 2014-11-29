@@ -11,7 +11,7 @@ import model.player.Game;
  *
  * @author fabio
  */
-public class Drop extends Action{
+public class Drop extends Action {
 
     public Drop(String itemDrop, String condition) {
         super(itemDrop, condition);
@@ -19,11 +19,11 @@ public class Drop extends Action{
 
     @Override
     public void process() {
-         getGameText().concat(" dropar o objeto " + getObj().getName() );
-         //remove da sala 
-          Game.getInstance().getLocal().putRoom( getObj());
-          Game.getInstance().getCharacter().getInventory().removeInventory(getObj());
-          
+        getGameText().concat(" dropar o objeto " + getObj().getName());
+        //remove da sala 
+        Game.getInstance().getLocal().putRoom(getObj());
+        Game.getInstance().getCharacter().getInventory().removeInventory(getObj());
+
     }
-    
+
 }

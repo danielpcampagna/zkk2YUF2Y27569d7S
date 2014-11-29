@@ -18,6 +18,7 @@ public class CreatePlayerScreen implements IView {
     private Scanner keyboard = new Scanner(System.in);
     private SimpleMessage my;
     private PlayerController player;
+    private final String BACK = "-1";
 
     public CreatePlayerScreen(PlayerController player) {
         this.player = player;
@@ -28,7 +29,7 @@ public class CreatePlayerScreen implements IView {
                 + " 3o - Confirme a Senha [ENTER]\n"
                 + "\n"
                 + "\n"
-                + "\n", 60);
+                + "\nDigite [" + BACK + "] para voltar", 60);
     }
 
     @Override
@@ -38,31 +39,42 @@ public class CreatePlayerScreen implements IView {
         String login = null;
         String senha = null;
         String confirmacaoSenha = null;
-        boolean valid = false;
+        boolean valid = true;
 
         // preenchendo o campo login
         do {
-            if (login != null && !valid) {
+            if (!valid) {
+                if (login.equals(BACK)) {
+                    return;
+                }
                 new SimpleMessage(SimpleMessage.ERRO, "ERRO", "Deve conter entre 4 e 20 caracteres").show();
-                keyboard.next();
+                keyboard.nextLine();
             }
-            login = keyboard.next();
-            valid = login.length() >= 4 && login.length() <= 20;
+            System.out.print("Login: ");
+            login = keyboard.nextLine();
+            valid = login != null && login.length() >= 4 && login.length() <= 20;
         } while (!valid);
-        valid = false;
+        valid = true;
         do {
-            if (senha != null && !valid) {
+            if (!valid) {
+                if (senha.equals(BACK) || confirmacaoSenha.equals(BACK)) {
+                    return;
+                }
                 if (!(senha.length() >= 4
                         && senha.length() <= 20)) {
                     new SimpleMessage(SimpleMessage.ERRO, "ERRO", "Deve conter entre 4 e 20 caracteres").show();
                 }
-                if (!(senha.trim().equals(confirmacaoSenha.trim()))){
+                if (!(senha.trim().equals(confirmacaoSenha.trim()))) {
                     new SimpleMessage(SimpleMessage.ERRO, "ERRO", "Os dois campos deve ser iguais").show();
                 }
             }
-            senha = keyboard.next();
-            confirmacaoSenha = keyboard.next();
-            valid = senha.length() >= 4
+            System.out.print("Senha: ");
+            senha = keyboard.nextLine();
+            System.out.print("Confirmação:");
+            confirmacaoSenha = keyboard.nextLine();
+            valid = senha != null
+                    && confirmacaoSenha != null
+                    && senha.length() >= 4
                     && senha.length() <= 20
                     && senha.trim().equals(confirmacaoSenha.trim());
         } while (!valid);
@@ -71,7 +83,11 @@ public class CreatePlayerScreen implements IView {
         player.setSenha(senha);
 
         try {
-            player.save();
+            if (player.save()) {
+                new SimpleMessage("Conta criada com sucesso!").show();
+            } else {
+                new SimpleMessage("Ocorreu um erro ao criar a conta!").show();
+            }
         } catch (IODataExistingException ex) {
             new SimpleMessage(SimpleMessage.ERRO, "Erro", ex.getMessage());
         }
