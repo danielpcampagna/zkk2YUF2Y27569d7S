@@ -1,0 +1,9 @@
+agua#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:
+chave#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:
+caixa#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#KEY:chave#ouro:monstro1:monstro2:potion verde:potion vermelha:#ON:#NOT:
+ouro#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#CONDITIONAL:10:10:10:10#NOT:#ON#NOT:#ON:#NOT:
+monstro1#CONDITIONAL:10:10:10:10#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON#NOT:#ON:#NOT:
+monstro2#OFF#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON#NOT:#ON:#NOT:
+potion verde#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:
+potion vermelha#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:
+potion rocha#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:#ON:#NOT:

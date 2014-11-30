@@ -89,6 +89,7 @@ class PlayingScreen implements IView {
                         case "check":
                         case "drop":
                         case "get":
+                        case "open":
                             tmp = verifyPlace(command.getObjects()[0]);
 
                             if (tmp != null) {
@@ -134,7 +135,8 @@ class PlayingScreen implements IView {
                                     "Inventário", currentGame.getCharacter().getInventory().see().getText()).show();
                             break;
                         case "see":
-                            currentGame.getLocal().see();
+                            new SimpleMessage(SimpleMessage.CENTER,
+                                    currentGame.getLocal().getName(),currentGame.getLocal().see().getText()).show();
                             break;
                     }
                     break;

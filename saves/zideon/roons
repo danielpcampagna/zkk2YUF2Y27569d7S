@@ -1,0 +1,4 @@
+previa#agua#teste#Bem Vindo!
+teste#agua:caixa:chave#previa:room2:room1#fase de teste
+room2#agua:#teste:room1#fase de quarto
+room1#agua:#room2:teste#fase de quarto

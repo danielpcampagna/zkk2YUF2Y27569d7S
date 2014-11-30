@@ -96,8 +96,11 @@ public class LoadGameScreen implements IView {
                                     && Integer.parseInt(op) <= games.size();
                         } while (!valid);
                         valid = true;
-
-                        nextView = new PlayingScreen(games.get(Integer.parseInt(op) - 1));
+                        Game select = games.get(Integer.parseInt(op) - 1);
+                        Game.getInstance().setName(select.getName());
+                        Game.getInstance().setCharacter(select.getCharacter());
+                        Game.getInstance().setLocal(select.getLocal());
+                        nextView = new PlayingScreen(Game.getInstance());
                         nextView.show();
                     } catch (IOEmptyTableException ex) {
                         new SimpleMessage(SimpleMessage.ERRO, "Erro", "Não existe jogos registrados", SimpleMessage.MIN_W).show();

@@ -80,11 +80,15 @@ public class Room implements IObserver {
 
     public GameText see() {
         GameText out = new GameText();
-        System.err.println(visibility);
+         out.concat("itens:\n");
         for (TAObject in : objects.values()) {
             if (visibility >= in.getVisibility()) {
-                out.setText(out.getText() + in.getName()+" " + in.getDescription()+"\n");
+                out.concat( in.getName()+" " + in.getDescription()+"\n");
             }
+        }
+        out.concat("portas:\n");
+         for (Door in : doors.values()) {
+                out.concat( in.getRoomNameB()+"\n");
         }
         return out;
     }

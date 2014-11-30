@@ -240,6 +240,7 @@ class CreateGameScreen implements IView {
             game.save();
             player.addGame(game.load());
             player.update();
+            
         } catch (IODataExistingException ex) {
             new SimpleMessage(SimpleMessage.ERRO, "Erro ao Salvar",
                     "Ocorreu um erro ao salvar o seu personagem!").show();

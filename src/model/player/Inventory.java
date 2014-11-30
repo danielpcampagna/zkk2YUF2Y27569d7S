@@ -15,7 +15,7 @@ public class Inventory {
     private int capacity;
 
     Inventory() {
-        objects = new HashMap<String, TAObject>();
+        objects = new HashMap<>();
         capacity = 100;
     }
 
@@ -58,6 +58,7 @@ public class Inventory {
     }
 
     public Inventory(int capacity) {
+        objects = new HashMap<>();
         this.capacity = capacity;
     }
 

@@ -50,7 +50,7 @@ public class ActionFactory {
             while (arq.hasNextLine()) {
                 String line = arq.nextLine();
                 if (line != null
-                        && line.trim().equals("")) {
+                        && !line.trim().equals("")) {
                     String[] cut = line.split("#");
 
                     String condition = "";
